@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Mobile</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#000;color:#fff}
@@ -26,7 +27,7 @@ p{margin:10px 0 30px}
   width:90%;
   max-width:500px;
 }
-a{
+a.main{
   flex:1;
   padding:20px;
   background:#d4af37;
@@ -36,13 +37,14 @@ a{
   border-radius:14px;
 }
 .lang button{
-  margin:5px;
+  margin:6px;
   padding:6px 10px;
   font-weight:bold;
 }
 @media(max-width:600px){.buttons{flex-direction:column}}
 </style>
 </head>
+
 <body>
 
 <div class="hero">
@@ -50,8 +52,8 @@ a{
   <p data-t="subtitle">Продажба • Сервис • Аксесоари</p>
 
   <div class="buttons">
-    <a href="phones.html" data-t="phones">📱 Телефони</a>
-    <a href="accessories.html" data-t="accessories">🎧 Аксесоари</a>
+    <a class="main" href="phones.html" data-t="phones">📱 Телефони</a>
+    <a class="main" href="accessories.html" data-t="accessories">🎧 Аксесоари</a>
   </div>
 
   <br>
