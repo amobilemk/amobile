@@ -1,60 +1,137 @@
 <!DOCTYPE html>
 <html lang="mk">
 <head>
-  <meta charset="UTF-8">
-  <title>A Mobile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="lang.js" defer></script>
+<meta charset="UTF-8">
+<title>A Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#000;color:#fff}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:15px 20px;
+  background:rgba(0,0,0,.85);
+  z-index:1000;
+}
+nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(212,175,55,.35) 50%, transparent 60%),
+    linear-gradient(-60deg, transparent 40%, rgba(212,175,55,.2) 50%, transparent 60%);
+  animation:bgMove 18s linear infinite;
+}
+@keyframes bgMove{
+  to{transform:translate(200px,200px)}
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+.hero h1{
+  font-size:46px;
+  margin-bottom:10px;
+  letter-spacing:2px;
+}
+.hero p{
+  opacity:.9;
+  margin-bottom:40px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons{
+  display:flex;
+  gap:20px;
+  max-width:520px;
+  margin:0 auto 30px;
+}
+.hero-btn{
+  flex:1;
+  padding:18px 0;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+}
+.hero-btn.phones{
+  background:linear-gradient(135deg,#d4af37,#b8962e);
+  color:#000;
+}
+.hero-btn.accessories{
+  border:2px solid #d4af37;
+  color:#d4af37;
+}
+.hero-btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(212,175,55,.4);
+}
+
+.phone{
+  color:#d4af37;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:32px}
+  .hero-buttons{flex-direction:column}
+}
+</style>
 </head>
+
 <body>
 
-<header class="header">
-  <div class="header-inner">
-
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    <nav id="nav">
-      <a href="index.html" data-lang="home"></a>
-      <a href="phones.html" data-lang="phones"></a>
-      <a href="accessories.html" data-lang="accessories"></a>
-      <a href="contact.html" data-lang="contact"></a>
-    </nav>
-
-    <div class="lang">
-      <button onclick="setLanguage('mk')">MK</button>
-      <button onclick="setLanguage('al')">AL</button>
-      <button onclick="setLanguage('en')">EN</button>
-    </div>
-
-  </div>
+<header>
+  <nav>
+    <a href="#">Почетна</a>
+    <a href="#phones">Телефони</a>
+    <a href="#accessories">Аксесоари</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-
   <div class="hero-content">
     <h1>A Mobile</h1>
-    <p data-lang="services"></p>
+    <p>Продажба • Сервис • Аксесоари • Откуп • Декодирање</p>
 
     <div class="hero-buttons">
-      <a href="phones.html" class="btn gold">Телефони</a>
-      <a href="accessories.html" class="btn outline">Аксесоари</a>
+      <a href="#phones" class="hero-btn phones">📱 Телефони</a>
+      <a href="#accessories" class="hero-btn accessories">🎧 Аксесоари</a>
     </div>
 
-    <div class="hero-phone">
-      📞 070 490 490
-    </div>
+    <div class="phone">📞 070 490 490</div>
   </div>
 </section>
-
-<a class="whatsapp" href="https://wa.me/38970490490" target="_blank">
-  WhatsApp
-</a>
-
-<footer>
-  © A Mobile – Mobile Store & Services
-</footer>
 
 </body>
 </html>
