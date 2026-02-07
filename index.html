@@ -1,38 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="mk">
 <head>
 <meta charset="UTF-8">
-<title>A Mobile</title>
-<link rel="stylesheet" href="style.css">
-<script src="lang.js" defer></script>
+<title>ADEM MOBILE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial;background:#f4f4f4}
+header{background:#fff;border-bottom:3px solid #c40000}
+.header{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:15px}
+nav a{margin-left:15px;text-decoration:none;color:#111;font-weight:bold}
+
+.products{max-width:1200px;margin:40px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:15px}
+.product{background:#fff;padding:15px;border-radius:8px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.product img{width:100%;height:200px;object-fit:contain}
+.price{color:#c40000;font-weight:bold}
+button{background:#111;color:#fff;border:none;padding:10px 15px;margin-top:10px;cursor:pointer}
+button:hover{background:#c40000}
+
+.cart{position:fixed;right:0;top:0;width:280px;height:100%;background:#111;color:#fff;padding:15px;overflow:auto}
+.cart h3{border-bottom:1px solid #444;padding-bottom:5px}
+.cart-item{font-size:14px;margin:8px 0}
+.total{font-weight:bold;color:#c40000;margin-top:10px}
+
+.social{position:fixed;left:15px;bottom:15px;display:flex;flex-direction:column;gap:10px}
+.social a{background:#25d366;color:#fff;padding:12px;border-radius:50%;text-align:center;font-size:18px;text-decoration:none}
+.fb{background:#1877f2}
+</style>
 </head>
+
 <body>
 
 <header>
- <nav>
-  <a data-lang="home"></a>
-  <a href="phones.html" data-lang="phones"></a>
-  <a href="accessories.html" data-lang="accessories"></a>
-  <a href="contact.html" data-lang="contact"></a>
- </nav>
- <div class="lang">
-  <button onclick="setLanguage('mk')">MK</button>
-  <button onclick="setLanguage('al')">AL</button>
-  <button onclick="setLanguage('en')">EN</button>
- </div>
+<div class="header">
+<img src="logo.svg" height="50">
+<nav>
+<a href="#">Телефони</a>
+<a href="#">Опрема</a>
+<a href="#">Контакт</a>
+</nav>
+</div>
 </header>
 
-<section class="hero">
- <h1 data-lang="title"></h1>
- <p data-lang="services"></p>
- <h2>📞 070 490 490</h2>
-</section>
+<div class="products">
+<div class="product">
+<img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-blacktitanium-select?wid=800">
+<h3>iPhone 15 Pro</h3>
+<p class="price">89900 ден</p>
+<button onclick="addToCart('iPhone 15 Pro',89900)">Во кошничка</button>
+</div>
 
-<a class="whatsapp" href="https://wa.me/38970490490" target="_blank" data-lang="whatsapp"></a>
+<div class="product">
+<img src="https://images.samsung.com/is/image/samsung/p6pim/levant/2401/gallery/levant-galaxy-s24-ultra-sm-s928bzkhmea-thumb-539318706">
+<h3>Samsung S24 Ultra</h3>
+<p class="price">84900 ден</p>
+<button onclick="addToCart('S24 Ultra',84900)">Во кошничка</button>
+</div>
+</div>
 
-<footer>
- © A Mobile – Mobile Store & Services
-</footer>
+<div class="cart">
+<h3>🛒 Кошничка</h3>
+<div id="cartItems"></div>
+<p class="total">Вкупно: <span id="total">0</span> ден</p>
+</div>
+
+<div class="social">
+<a class="fb" href="https://facebook.com" target="_blank">f</a>
+<a href="https://wa.me/38970490490" target="_blank">💬</a>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name,price){
+cart.push({name,price});
+localStorage.setItem("cart",JSON.stringify(cart));
+renderCart();
+}
+
+function renderCart(){
+let items=document.getElementById("cartItems");
+let total=0;
+items.innerHTML="";
+cart.forEach((p,i)=>{
+total+=p.price;
+items.innerHTML+=`<div class="cart-item">${p.name} - ${p.price} ден</div>`;
+});
+document.getElementById("total").innerText=total;
+}
+renderCart();
+</script>
 
 </body>
 </html>
