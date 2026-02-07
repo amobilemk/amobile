@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>A Mobile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{background:#000;color:#fff}
@@ -11,11 +12,9 @@ body{background:#000;color:#fff}
 /* HEADER */
 header{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  padding:15px 20px;
+  top:0;left:0;width:100%;
   background:rgba(0,0,0,.85);
+  padding:15px;
   z-index:1000;
 }
 nav{
@@ -23,11 +22,7 @@ nav{
   justify-content:center;
   gap:20px;
 }
-nav a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-}
+nav a{color:#fff;text-decoration:none;font-weight:bold}
 
 /* HERO */
 .hero{
@@ -48,25 +43,12 @@ nav a{
     linear-gradient(-60deg, transparent 40%, rgba(212,175,55,.2) 50%, transparent 60%);
   animation:bgMove 18s linear infinite;
 }
-@keyframes bgMove{
-  to{transform:translate(200px,200px)}
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  padding:20px;
-}
-.hero h1{
-  font-size:46px;
-  margin-bottom:10px;
-  letter-spacing:2px;
-}
-.hero p{
-  opacity:.9;
-  margin-bottom:40px;
-}
+@keyframes bgMove{to{transform:translate(200px,200px)}}
 
-/* HERO BUTTONS */
+.hero-content{position:relative;z-index:2;padding:20px}
+.hero h1{font-size:46px;margin-bottom:10px}
+.hero p{opacity:.9;margin-bottom:40px}
+
 .hero-buttons{
   display:flex;
   gap:20px;
@@ -82,23 +64,47 @@ nav a{
   text-decoration:none;
   transition:.3s;
 }
-.hero-btn.phones{
-  background:linear-gradient(135deg,#d4af37,#b8962e);
-  color:#000;
+.hero-btn.phones{background:linear-gradient(135deg,#d4af37,#b8962e);color:#000}
+.hero-btn.accessories{border:2px solid #d4af37;color:#d4af37}
+.hero-btn:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(212,175,55,.4)}
+
+.phone{color:#d4af37;font-size:20px;font-weight:bold}
+
+/* SECTIONS */
+section{padding:90px 20px}
+h2{text-align:center;margin-bottom:30px;color:#d4af37}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:auto;
 }
-.hero-btn.accessories{
-  border:2px solid #d4af37;
-  color:#d4af37;
+.card{
+  background:#111;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
 }
-.hero-btn:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(212,175,55,.4);
+.card img{
+  width:100%;
+  height:160px;
+  margin-bottom:10px;
+}
+.price{color:#d4af37;font-weight:bold;margin:8px 0}
+.card button{
+  background:#d4af37;
+  border:none;
+  padding:10px 18px;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:8px;
 }
 
-.phone{
-  color:#d4af37;
-  font-size:20px;
-  font-weight:bold;
+/* SVG IMAGE */
+.svg{
+  background:#000;
 }
 
 /* MOBILE */
@@ -119,6 +125,7 @@ nav a{
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>A Mobile</h1>
@@ -131,6 +138,73 @@ nav a{
 
     <div class="phone">📞 070 490 490</div>
   </div>
+</section>
+
+<!-- PHONES -->
+<section id="phones">
+<h2>📱 Телефони</h2>
+<div class="products">
+
+<div class="card">
+<img class="svg" src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
+<rect width='100%' height='100%' fill='%23000'/>
+<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>iPhone 17 Pro</text>
+</svg>">
+<h3>iPhone 17 Pro</h3>
+<div class="price">109.990 ден</div>
+<button>Нарачај</button>
+</div>
+
+<div class="card">
+<img class="svg" src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
+<rect width='100%' height='100%' fill='%23000'/>
+<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Samsung Galaxy S Ultra</text>
+</svg>">
+<h3>Samsung Galaxy S Ultra</h3>
+<div class="price">99.990 ден</div>
+<button>Нарачај</button>
+</div>
+
+<div class="card">
+<img class="svg" src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
+<rect width='100%' height='100%' fill='%23000'/>
+<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Xiaomi 14 Pro</text>
+</svg>">
+<h3>Xiaomi 14 Pro</h3>
+<div class="price">59.990 ден</div>
+<button>Нарачај</button>
+</div>
+
+<div class="card">
+<img class="svg" src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
+<rect width='100%' height='100%' fill='%23000'/>
+<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Huawei P Series</text>
+</svg>">
+<h3>Huawei P Series</h3>
+<div class="price">69.990 ден</div>
+<button>Нарачај</button>
+</div>
+
+</div>
+</section>
+
+<!-- ACCESSORIES -->
+<section id="accessories">
+<h2>🎧 Аксесоари</h2>
+<div class="products">
+
+<div class="card"><h3>Брз полнач 65W</h3><div class="price">1.990 ден</div><button>Нарачај</button></div>
+<div class="card"><h3>Безжични слушалки</h3><div class="price">3.490 ден</div><button>Нарачај</button></div>
+<div class="card"><h3>Power Bank 20.000mAh</h3><div class="price">2.990 ден</div><button>Нарачај</button></div>
+<div class="card"><h3>Заштитна маска</h3><div class="price">990 ден</div><button>Нарачај</button></div>
+<div class="card"><h3>Стакло (Tempered)</h3><div class="price">590 ден</div><button>Нарачај</button></div>
+<div class="card"><h3>USB-C кабел</h3><div class="price">490 ден</div><button>Нарачај</button></div>
+
+</div>
 </section>
 
 </body>
