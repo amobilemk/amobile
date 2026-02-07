@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A Mobile</title>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js" defer></script>
+</head>
+<body>
 
+<header>
+ <nav>
+  <a data-lang="home"></a>
+  <a href="phones.html" data-lang="phones"></a>
+  <a href="accessories.html" data-lang="accessories"></a>
+  <a href="contact.html" data-lang="contact"></a>
+ </nav>
+ <div class="lang">
+  <button onclick="setLanguage('mk')">MK</button>
+  <button onclick="setLanguage('al')">AL</button>
+  <button onclick="setLanguage('en')">EN</button>
+ </div>
+</header>
+
+<section class="hero">
+ <h1 data-lang="title"></h1>
+ <p data-lang="services"></p>
+ <h2>📞 070 490 490</h2>
+</section>
+
+<a class="whatsapp" href="https://wa.me/38970490490" target="_blank" data-lang="whatsapp"></a>
+
+<footer>
+ © A Mobile – Mobile Store & Services
+</footer>
+
+</body>
+</html>
