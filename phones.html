@@ -4,56 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Телефони</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#f5f6fa}
-header{background:#000;color:#fff;padding:15px;text-align:center}
+header{
+  background:#000;color:#fff;
+  padding:15px;text-align:center;
+}
+.back{
+  display:inline-block;
+  margin:15px;
+  padding:10px 14px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
 .products{
   padding:20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:20px;
 }
-.card{background:#fff;padding:15px;border-radius:10px;text-align:center}
-img{width:100%;height:150px;object-fit:contain}
-.price{color:#c00;font-weight:bold}
-a{display:block;margin-top:8px;background:#25d366;color:#fff;padding:10px;border-radius:8px;text-decoration:none}
-.lang{text-align:center;margin:10px}
+.card{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
+.price{color:#c00;font-weight:bold;margin:6px 0}
+.wa{
+  display:block;
+  background:#25d366;
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+  text-decoration:none;
+}
 </style>
 </head>
+
 <body>
 
-<header data-t="phones">Телефони</header>
-
-<div class="lang">
-<button onclick="setLang('mk')">MK</button>
-<button onclick="setLang('al')">AL</button>
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('tr')">TR</button>
-</div>
+<a href="index.html" class="back">⬅ Назад</a>
+<header>📱 Телефони</header>
 
 <div class="products">
 
-<!-- iPhone -->
-<div class="card"><img src="https://dummyimage.com/300x300/000/fff&text=iPhone+17"><h4>iPhone 17</h4><div class="price">79.990 ден</div><a href="https://wa.me/38970490490?text=iPhone%2017">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/111/fff&text=iPhone+16+Pro"><h4>iPhone 16 Pro</h4><div class="price">69.990 ден</div><a href="https://wa.me/38970490490?text=iPhone%2016%20Pro">WhatsApp</a></div>
+<!-- APPLE -->
+<div class="card"><img src="https://picsum.photos/seed/iphone17/400/400"><h4>iPhone 17</h4><div class="price">79.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2017">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/iphone16/400/400"><h4>iPhone 16 Pro</h4><div class="price">69.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2016%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/iphone15/400/400"><h4>iPhone 15</h4><div class="price">59.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2015">WhatsApp</a></div>
 
-<!-- Samsung -->
-<div class="card"><img src="https://dummyimage.com/300x300/222/fff&text=Samsung+S24+Ultra"><h4>Samsung S24 Ultra</h4><div class="price">74.990 ден</div><a href="https://wa.me/38970490490?text=Samsung%20S24%20Ultra">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/333/fff&text=Samsung+A55"><h4>Samsung A55</h4><div class="price">24.990 ден</div><a href="https://wa.me/38970490490?text=Samsung%20A55">WhatsApp</a></div>
+<!-- SAMSUNG -->
+<div class="card"><img src="https://picsum.photos/seed/s24ultra/400/400"><h4>Samsung S24 Ultra</h4><div class="price">74.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Samsung%20S24%20Ultra">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/s24/400/400"><h4>Samsung S24</h4><div class="price">54.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Samsung%20S24">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/a55/400/400"><h4>Samsung A55</h4><div class="price">24.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Samsung%20A55">WhatsApp</a></div>
 
-<!-- Xiaomi -->
-<div class="card"><img src="https://dummyimage.com/300x300/444/fff&text=Xiaomi+14+Pro"><h4>Xiaomi 14 Pro</h4><div class="price">49.990 ден</div><a href="https://wa.me/38970490490?text=Xiaomi%2014%20Pro">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/555/fff&text=Redmi+Note+13"><h4>Redmi Note 13</h4><div class="price">15.990 ден</div><a href="https://wa.me/38970490490?text=Redmi%20Note%2013">WhatsApp</a></div>
+<!-- XIAOMI -->
+<div class="card"><img src="https://picsum.photos/seed/xiaomi14/400/400"><h4>Xiaomi 14 Pro</h4><div class="price">49.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/redmi13/400/400"><h4>Redmi Note 13</h4><div class="price">15.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Redmi%20Note%2013">WhatsApp</a></div>
 
-<!-- Huawei -->
-<div class="card"><img src="https://dummyimage.com/300x300/666/fff&text=Huawei+P70"><h4>Huawei P70</h4><div class="price">52.990 ден</div><a href="https://wa.me/38970490490?text=Huawei%20P70">WhatsApp</a></div>
+<!-- HUAWEI -->
+<div class="card"><img src="https://picsum.photos/seed/huaweip70/400/400"><h4>Huawei P70</h4><div class="price">52.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Huawei%20P70">WhatsApp</a></div>
+
+<!-- HONOR -->
+<div class="card"><img src="https://picsum.photos/seed/honor90/400/400"><h4>Honor 90</h4><div class="price">29.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Honor%2090">WhatsApp</a></div>
 
 </div>
-
-<script>
-function setLang(l){localStorage.setItem("lang",l);}
-</script>
 
 </body>
 </html>
