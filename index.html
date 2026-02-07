@@ -16,14 +16,10 @@ body{background:#000;color:#fff}
   text-align:center;
   background:
     linear-gradient(120deg,#000,#111),
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0 20px,
-      rgba(212,175,55,.25) 20px 40px
-    );
+    repeating-linear-gradient(-45deg,transparent 0 20px,rgba(212,175,55,.25) 20px 40px);
 }
 h1{font-size:42px;color:#d4af37}
-p{margin:10px 0 40px}
+p{margin:10px 0 30px}
 .buttons{
   display:flex;
   gap:20px;
@@ -39,25 +35,49 @@ a{
   text-decoration:none;
   border-radius:14px;
 }
-@media(max-width:600px){
-  .buttons{flex-direction:column}
+.lang button{
+  margin:5px;
+  padding:6px 10px;
+  font-weight:bold;
 }
+@media(max-width:600px){.buttons{flex-direction:column}}
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>A Mobile</h1>
-  <p>Продажба • Сервис • Аксесоари</p>
+  <h1 data-t="title">A Mobile</h1>
+  <p data-t="subtitle">Продажба • Сервис • Аксесоари</p>
 
   <div class="buttons">
-    <a href="phones.html">📱 Телефони</a>
-    <a href="accessories.html">🎧 Аксесоари</a>
+    <a href="phones.html" data-t="phones">📱 Телефони</a>
+    <a href="accessories.html" data-t="accessories">🎧 Аксесоари</a>
   </div>
 
   <br>
   <strong>📞 070 490 490</strong>
+
+  <div class="lang">
+    <button onclick="setLang('mk')">MK</button>
+    <button onclick="setLang('al')">AL</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('tr')">TR</button>
+  </div>
 </div>
+
+<script>
+const t={
+mk:{title:"A Mobile",subtitle:"Продажба • Сервис • Аксесоари",phones:"Телефони",accessories:"Аксесоари"},
+al:{title:"A Mobile",subtitle:"Shitje • Servis • Aksesore",phones:"Telefona",accessories:"Aksesore"},
+en:{title:"A Mobile",subtitle:"Sales • Service • Accessories",phones:"Phones",accessories:"Accessories"},
+tr:{title:"A Mobile",subtitle:"Satış • Servis • Aksesuar",phones:"Telefonlar",accessories:"Aksesuarlar"}
+};
+function setLang(l){
+localStorage.setItem("lang",l);
+document.querySelectorAll("[data-t]").forEach(e=>e.innerText=t[l][e.dataset.t]);
+}
+setLang(localStorage.getItem("lang")||"mk");
+</script>
 
 </body>
 </html>
