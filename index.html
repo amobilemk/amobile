@@ -2,115 +2,130 @@
 <html lang="mk">
 <head>
 <meta charset="UTF-8">
-<title>A Mobile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Mobile</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#000;color:#fff}
+body{background:#f5f6fa;color:#222}
 
 /* HEADER */
 header{
-  position:fixed;
-  top:0;left:0;width:100%;
-  background:rgba(0,0,0,.85);
-  padding:15px;
-  z-index:1000;
-}
-nav{
+  background:#000;
+  color:#fff;
+  padding:15px 20px;
   display:flex;
   justify-content:center;
-  gap:20px;
 }
-nav a{color:#fff;text-decoration:none;font-weight:bold}
+header h2{color:#d4af37}
 
 /* HERO */
 .hero{
-  min-height:100vh;
+  min-height:90vh;
+  background:
+    linear-gradient(120deg,rgba(0,0,0,.85),rgba(0,0,0,.85)),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 20px,
+      rgba(212,175,55,.18) 20px 40px
+    );
+  color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
-  overflow:hidden;
+  padding:40px 20px;
 }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(120deg, transparent 40%, rgba(212,175,55,.35) 50%, transparent 60%),
-    linear-gradient(-60deg, transparent 40%, rgba(212,175,55,.2) 50%, transparent 60%);
-  animation:bgMove 18s linear infinite;
-}
-@keyframes bgMove{to{transform:translate(200px,200px)}}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero p{opacity:.9}
 
-.hero-content{position:relative;z-index:2;padding:20px}
-.hero h1{font-size:46px;margin-bottom:10px}
-.hero p{opacity:.9;margin-bottom:40px}
-
-.hero-buttons{
+/* HERO BUTTONS */
+.hero-actions{
   display:flex;
   gap:20px;
-  max-width:520px;
-  margin:0 auto 30px;
+  margin:40px auto;
+  max-width:500px;
 }
 .hero-btn{
   flex:1;
   padding:18px 0;
-  border-radius:14px;
   font-size:18px;
   font-weight:bold;
+  border-radius:14px;
   text-decoration:none;
   transition:.3s;
 }
-.hero-btn.phones{background:linear-gradient(135deg,#d4af37,#b8962e);color:#000}
-.hero-btn.accessories{border:2px solid #d4af37;color:#d4af37}
-.hero-btn:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(212,175,55,.4)}
-
-.phone{color:#d4af37;font-size:20px;font-weight:bold}
+.hero-btn.phones{
+  background:linear-gradient(135deg,#d4af37,#b8962e);
+  color:#000;
+}
+.hero-btn.acc{
+  border:2px solid #d4af37;
+  color:#d4af37;
+}
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(212,175,55,.3);
+}
 
 /* SECTIONS */
-section{padding:90px 20px}
-h2{text-align:center;margin-bottom:30px;color:#d4af37}
+.section{
+  padding:60px 20px;
+}
+.section h2{
+  text-align:center;
+  margin-bottom:30px;
+}
 
+/* PRODUCTS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:20px;
-  max-width:1200px;
-  margin:auto;
 }
 .card{
-  background:#111;
-  padding:20px;
+  background:#fff;
   border-radius:12px;
+  padding:15px;
   text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 .card img{
   width:100%;
-  height:160px;
-  margin-bottom:10px;
+  height:150px;
+  object-fit:contain;
 }
-.price{color:#d4af37;font-weight:bold;margin:8px 0}
-.card button{
-  background:#d4af37;
-  border:none;
-  padding:10px 18px;
+.price{
+  color:#c00;
   font-weight:bold;
-  cursor:pointer;
-  border-radius:8px;
+  margin:6px 0;
 }
 
-/* SVG IMAGE */
-.svg{
+/* WHATSAPP BUTTON */
+.wa-btn{
+  display:block;
+  margin-top:8px;
+  background:#25d366;
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* FOOTER */
+footer{
   background:#000;
+  color:#fff;
+  text-align:center;
+  padding:20px;
 }
 
 /* MOBILE */
 @media(max-width:600px){
   .hero h1{font-size:32px}
-  .hero-buttons{flex-direction:column}
+  .hero-actions{flex-direction:column}
 }
 </style>
 </head>
@@ -118,94 +133,99 @@ h2{text-align:center;margin-bottom:30px;color:#d4af37}
 <body>
 
 <header>
-  <nav>
-    <a href="#">Почетна</a>
-    <a href="#phones">Телефони</a>
-    <a href="#accessories">Аксесоари</a>
-  </nav>
+  <h2>A Mobile</h2>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <h1>A Mobile</h1>
+  <div>
+    <h1>Mobile Store & Services</h1>
     <p>Продажба • Сервис • Аксесоари • Откуп • Декодирање</p>
 
-    <div class="hero-buttons">
+    <div class="hero-actions">
       <a href="#phones" class="hero-btn phones">📱 Телефони</a>
-      <a href="#accessories" class="hero-btn accessories">🎧 Аксесоари</a>
+      <a href="#accessories" class="hero-btn acc">🎧 Аксесоари</a>
     </div>
 
-    <div class="phone">📞 070 490 490</div>
+    <strong>📞 070 490 490</strong>
   </div>
 </section>
 
 <!-- PHONES -->
-<section id="phones">
+<section id="phones" class="section">
 <h2>📱 Телефони</h2>
 <div class="products">
 
 <div class="card">
-<img class="svg" src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
-<rect width='100%' height='100%' fill='%23000'/>
-<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>iPhone 17 Pro</text>
-</svg>">
-<h3>iPhone 17 Pro</h3>
-<div class="price">109.990 ден</div>
-<button>Нарачај</button>
+<img src="https://dummyimage.com/300x300/000/fff&text=iPhone+17">
+<h4>iPhone 17</h4>
+<div class="price">79.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20iPhone%2017%20-%2079.990%20ден">WhatsApp</a>
 </div>
 
 <div class="card">
-<img class="svg" src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
-<rect width='100%' height='100%' fill='%23000'/>
-<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Samsung Galaxy S Ultra</text>
-</svg>">
-<h3>Samsung Galaxy S Ultra</h3>
-<div class="price">99.990 ден</div>
-<button>Нарачај</button>
+<img src="https://dummyimage.com/300x300/111/fff&text=Samsung+S24+Ultra">
+<h4>Samsung S24 Ultra</h4>
+<div class="price">74.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Samsung%20S24%20Ultra%20-%2074.990%20ден">WhatsApp</a>
 </div>
 
 <div class="card">
-<img class="svg" src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
-<rect width='100%' height='100%' fill='%23000'/>
-<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Xiaomi 14 Pro</text>
-</svg>">
-<h3>Xiaomi 14 Pro</h3>
-<div class="price">59.990 ден</div>
-<button>Нарачај</button>
+<img src="https://dummyimage.com/300x300/222/fff&text=Xiaomi+14+Pro">
+<h4>Xiaomi 14 Pro</h4>
+<div class="price">49.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Xiaomi%2014%20Pro%20-%2049.990%20ден">WhatsApp</a>
 </div>
 
 <div class="card">
-<img class="svg" src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='300' height='160'>
-<rect width='100%' height='100%' fill='%23000'/>
-<text x='50%' y='50%' fill='gold' font-size='22' text-anchor='middle' dominant-baseline='middle'>Huawei P Series</text>
-</svg>">
-<h3>Huawei P Series</h3>
-<div class="price">69.990 ден</div>
-<button>Нарачај</button>
+<img src="https://dummyimage.com/300x300/333/fff&text=Huawei+P70">
+<h4>Huawei P70</h4>
+<div class="price">52.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Huawei%20P70%20-%2052.990%20ден">WhatsApp</a>
 </div>
 
 </div>
 </section>
 
 <!-- ACCESSORIES -->
-<section id="accessories">
+<section id="accessories" class="section">
 <h2>🎧 Аксесоари</h2>
 <div class="products">
 
-<div class="card"><h3>Брз полнач 65W</h3><div class="price">1.990 ден</div><button>Нарачај</button></div>
-<div class="card"><h3>Безжични слушалки</h3><div class="price">3.490 ден</div><button>Нарачај</button></div>
-<div class="card"><h3>Power Bank 20.000mAh</h3><div class="price">2.990 ден</div><button>Нарачај</button></div>
-<div class="card"><h3>Заштитна маска</h3><div class="price">990 ден</div><button>Нарачај</button></div>
-<div class="card"><h3>Стакло (Tempered)</h3><div class="price">590 ден</div><button>Нарачај</button></div>
-<div class="card"><h3>USB-C кабел</h3><div class="price">490 ден</div><button>Нарачај</button></div>
+<div class="card">
+<img src="https://dummyimage.com/300x300/000/fff&text=AirPods+Pro">
+<h4>AirPods Pro</h4>
+<div class="price">14.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20AirPods%20Pro%20-%2014.990%20ден">WhatsApp</a>
+</div>
+
+<div class="card">
+<img src="https://dummyimage.com/300x300/111/fff&text=Fast+Charger+65W">
+<h4>Брз Полнач 65W</h4>
+<div class="price">2.990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Брз%20Полнач%2065W%20-%202.990%20ден">WhatsApp</a>
+</div>
+
+<div class="card">
+<img src="https://dummyimage.com/300x300/222/fff&text=Phone+Case">
+<h4>Заштитна Маска</h4>
+<div class="price">990 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Заштитна%20Маска%20-%20990%20ден">WhatsApp</a>
+</div>
+
+<div class="card">
+<img src="https://dummyimage.com/300x300/333/fff&text=Power+Bank+20000mAh">
+<h4>Power Bank 20.000mAh</h4>
+<div class="price">3.490 ден</div>
+<a class="wa-btn" href="https://wa.me/38970490490?text=Здраво,%20ме%20интересира%20Power%20Bank%2020.000mAh%20-%203.490%20ден">WhatsApp</a>
+</div>
 
 </div>
 </section>
+
+<footer>
+© A Mobile – Mobile Store & Services
+</footer>
 
 </body>
 </html>
