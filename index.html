@@ -16,45 +16,47 @@
 body{
   overflow:hidden;
   color:#fff;
+  background:#000;
 }
 
-/* === АНИМИРАНА ПОЗАДИНА === */
-.background{
+/* ===== ПРЕМИУМ АНИМИРАНА ПОЗАДИНА ===== */
+.bg{
   position:fixed;
   inset:0;
-  background:#000;
   z-index:-2;
+  background:#000;
   overflow:hidden;
 }
 
-.background::before,
-.background::after{
+.bg::before,
+.bg::after{
   content:"";
   position:absolute;
-  inset:-50%;
+  inset:-60%;
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(212,175,55,0.25) 0px,
-      rgba(212,175,55,0.25) 2px,
-      transparent 2px,
-      transparent 40px
+      rgba(212,175,55,0.12) 0px,
+      rgba(212,175,55,0.12) 1px,
+      transparent 1px,
+      transparent 55px
     );
-  animation: moveLines 20s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(212,175,55,0.25));
+  animation: drift 60s linear infinite;
 }
 
-.background::after{
+.bg::after{
   transform:rotate(-45deg);
-  opacity:0.6;
-  animation-duration:30s;
+  opacity:0.7;
+  animation-duration:90s;
 }
 
-@keyframes moveLines{
-  from{transform:translateX(0) translateY(0);}
-  to{transform:translateX(200px) translateY(200px);}
+@keyframes drift{
+  from{transform:translate(0,0);}
+  to{transform:translate(300px,300px);}
 }
 
-/* === СОДРЖИНА === */
+/* ===== СОДРЖИНА ===== */
 .hero{
   min-height:100vh;
   display:flex;
@@ -68,17 +70,20 @@ body{
 h1{
   font-size:44px;
   color:#d4af37;
-  margin-bottom:10px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+  text-shadow:0 0 15px rgba(212,175,55,.35);
 }
 
 p{
-  margin-bottom:30px;
   font-size:18px;
+  opacity:.9;
+  margin-bottom:40px;
 }
 
 .buttons{
   display:flex;
-  gap:20px;
+  gap:22px;
   width:100%;
   max-width:420px;
 }
@@ -86,44 +91,36 @@ p{
 .main-btn{
   flex:1;
   padding:18px;
-  background:#d4af37;
+  background:linear-gradient(135deg,#d4af37,#b8962e);
   color:#000;
   text-decoration:none;
   font-weight:bold;
-  border-radius:14px;
-  transition:transform .2s;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(212,175,55,.35);
+  transition:all .25s ease;
 }
 
 .main-btn:hover{
-  transform:scale(1.05);
+  transform:translateY(-4px);
+  box-shadow:0 20px 45px rgba(212,175,55,.5);
 }
 
 .phone{
-  margin-top:25px;
+  margin-top:28px;
   font-size:18px;
-}
-
-.lang{
-  margin-top:20px;
-}
-
-.lang button{
-  margin:4px;
-  padding:6px 10px;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
+  opacity:.9;
 }
 
 @media(max-width:600px){
   .buttons{flex-direction:column;}
+  h1{font-size:36px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
+<div class="bg"></div>
 
 <div class="hero">
   <h1>A Mobile</h1>
