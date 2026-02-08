@@ -4,10 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Аксесоари</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#f5f6fa}
 header{background:#000;color:#fff;padding:15px;text-align:center}
+.back{
+  display:inline-block;
+  margin:15px;
+  padding:10px 14px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
 .products{
   padding:20px;
   display:grid;
@@ -15,21 +26,31 @@ header{background:#000;color:#fff;padding:15px;text-align:center}
   gap:20px;
 }
 .card{background:#fff;padding:15px;border-radius:10px;text-align:center}
-img{width:100%;height:150px;object-fit:contain}
+.card img{width:100%;height:150px;object-fit:cover}
 .price{color:#c00;font-weight:bold}
-a{display:block;margin-top:8px;background:#25d366;color:#fff;padding:10px;border-radius:8px;text-decoration:none}
+.wa{
+  display:block;
+  background:#25d366;
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+  text-decoration:none;
+}
 </style>
 </head>
+
 <body>
 
+<a href="index.html" class="back">⬅ Назад</a>
 <header>🎧 Аксесоари</header>
 
 <div class="products">
 
-<div class="card"><img src="https://dummyimage.com/300x300/000/fff&text=AirPods+Pro"><h4>AirPods Pro</h4><div class="price">14.990 ден</div><a href="https://wa.me/38970490490?text=AirPods%20Pro">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/111/fff&text=Fast+Charger+65W"><h4>Полнач 65W</h4><div class="price">2.990 ден</div><a href="https://wa.me/38970490490?text=Полнач%2065W">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/222/fff&text=Phone+Case"><h4>Заштитна Маска</h4><div class="price">990 ден</div><a href="https://wa.me/38970490490?text=Маска">WhatsApp</a></div>
-<div class="card"><img src="https://dummyimage.com/300x300/333/fff&text=Power+Bank"><h4>Power Bank 20.000mAh</h4><div class="price">3.490 ден</div><a href="https://wa.me/38970490490?text=Power%20Bank">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/airpods/400/400"><h4>AirPods Pro</h4><div class="price">14.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=AirPods%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/charger65/400/400"><h4>Полнач 65W</h4><div class="price">2.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Полнач%2065W">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/case/400/400"><h4>Заштитна Маска</h4><div class="price">990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Маска">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/powerbank/400/400"><h4>Power Bank 20.000mAh</h4><div class="price">3.490 ден</div><a class="wa" href="https://wa.me/38970490490?text=Power%20Bank">WhatsApp</a></div>
+<div class="card"><img src="https://picsum.photos/seed/cable/400/400"><h4>USB-C Кабел</h4><div class="price">490 ден</div><a class="wa" href="https://wa.me/38970490490?text=USB-C%20Кабел">WhatsApp</a></div>
 
 </div>
 
