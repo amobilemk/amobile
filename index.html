@@ -53,26 +53,9 @@ nav a{
 }
 .section h2{
   text-align:center;
-  margin-bottom:15px;
+  margin-bottom:40px;
   font-size:32px;
 }
-
-/* SECTION CONTACT */
-.section-contact{
-  text-align:center;
-  margin-bottom:35px;
-}
-.section-contact a{
-  display:inline-block;
-  margin:5px 10px;
-  padding:12px 20px;
-  border-radius:30px;
-  color:#fff;
-  font-weight:bold;
-  text-decoration:none;
-}
-.wh-btn{background:#25D366}
-.vb-btn{background:#7360F2}
 
 /* PRODUCTS */
 .products{
@@ -90,7 +73,7 @@ nav a{
 .fake-img{
   width:100%;
   height:140px;
-  background:#ddd;
+  background:linear-gradient(135deg,#ddd,#bbb);
   border-radius:8px;
   margin-bottom:15px;
 }
@@ -99,8 +82,14 @@ nav a{
   font-weight:bold;
   margin:10px 0;
 }
+.card a{
+  display:inline-block;
+  margin-top:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-/* FLOAT CONTACT */
+/* CONTACT FLOAT */
 .contact-fixed{
   position:fixed;
   bottom:20px;
@@ -118,6 +107,8 @@ nav a{
   text-decoration:none;
   box-shadow:0 6px 20px rgba(0,0,0,.3);
 }
+.wh{background:#25D366}
+.vb{background:#7360F2}
 
 /* FOOTER */
 footer{
@@ -160,42 +151,30 @@ footer{
 
 <!-- PHONES -->
 <section id="phones" class="section">
-  <h2 data-t="phones"></h2>
-  <div class="section-contact">
-    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
-    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
-  </div>
-  <div class="products" id="phonesList"></div>
+<h2 data-t="phones"></h2>
+<div class="products" id="phonesList"></div>
 </section>
 
 <!-- ACCESSORIES -->
 <section id="accessories" class="section">
-  <h2 data-t="accessories"></h2>
-  <div class="section-contact">
-    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
-    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
-  </div>
-  <div class="products" id="accList"></div>
+<h2 data-t="accessories"></h2>
+<div class="products" id="accList"></div>
 </section>
 
 <!-- ELECTRONICS -->
 <section id="electronics" class="section">
-  <h2 data-t="electronics"></h2>
-  <div class="section-contact">
-    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
-    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
-  </div>
-  <div class="products" id="elecList"></div>
+<h2 data-t="electronics"></h2>
+<div class="products" id="elecList"></div>
 </section>
 
 <footer>
 © A Mobile – Mobile Store & Services
 </footer>
 
-<!-- FLOATING CONTACT -->
+<!-- WHATSAPP + VIBER -->
 <div class="contact-fixed">
-  <a class="wh-btn" href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a>
-  <a class="vb-btn" href="viber://chat?number=38970490490">📞 Viber</a>
+  <a class="wh" href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a>
+  <a class="vb" href="viber://chat?number=38970490490">📞 Viber</a>
 </div>
 
 <script>
@@ -246,6 +225,8 @@ function fill(id,name){
     <div class="fake-img"></div>
     <h4>${name} ${i}</h4>
     <div class="price">${(i*1000)+999} ден</div>
+    <a href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a><br>
+    <a href="viber://chat?number=38970490490">📞 Viber</a>
   </div>`;
  }
 }
