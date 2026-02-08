@@ -10,251 +10,153 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Arial Rounded MT Bold', Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 /* ===== BACKGROUND ===== */
 body{
   min-height:100vh;
-  background:linear-gradient(120deg,#ff5f5f,#ffd36a,#7cf7ff,#b388ff);
-  background-size:400% 400%;
-  animation:bgMove 18s ease infinite;
+  background:#0f0f12;
+  color:#fff;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* ===== DIAGONAL CANDY LINES ===== */
-.lines{
+/* DIAGONAL POWER LINES */
+.bg-lines{
   position:absolute;
   inset:0;
   background:
     repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,.25) 0px,
-      rgba(255,255,255,.25) 12px,
-      transparent 12px,
+      120deg,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 2px,
+      transparent 2px,
       transparent 40px
     ),
     repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,.18) 0px,
-      rgba(255,255,255,.18) 10px,
-      transparent 10px,
-      transparent 35px
+      60deg,
+      rgba(214,0,0,0.08) 0px,
+      rgba(214,0,0,0.08) 3px,
+      transparent 3px,
+      transparent 60px
     );
-  animation:linesMove 25s linear infinite;
-  z-index:0;
+  animation:moveLines 40s linear infinite;
 }
 
-@keyframes linesMove{
-  from{background-position:0 0, 0 0}
-  to{background-position:600px 600px, -600px -600px}
+@keyframes moveLines{
+  from{background-position:0 0,0 0}
+  to{background-position:600px 600px,-600px 600px}
 }
 
-/* ===== FLOATING WORDS ===== */
-.word{
-  position:absolute;
-  font-weight:900;
-  font-size:26px;
-  opacity:.25;
-  color:#fff;
-  animation:spinFloat 16s linear infinite;
-  white-space:nowrap;
-}
-
-@keyframes spinFloat{
-  0%{transform:rotate(0deg) translateY(0)}
-  50%{transform:rotate(180deg) translateY(-35px)}
-  100%{transform:rotate(360deg) translateY(0)}
-}
-
-/* ===== MAIN CARD ===== */
+/* MAIN */
 .main{
   position:relative;
   z-index:2;
-  background:rgba(255,255,255,.92);
-  border-radius:34px;
-  padding:35px 28px 42px;
   width:90%;
   max-width:420px;
-  text-align:center;
-  box-shadow:0 30px 60px rgba(0,0,0,.3);
-  overflow:hidden;
+  padding:36px 28px;
+  border-radius:22px;
+  background:rgba(20,20,25,0.95);
+  box-shadow:0 25px 60px rgba(0,0,0,0.8);
 }
 
-/* INNER LINES (INSIDE CARD) */
-.main::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255,0,0,.08) 0,
-      rgba(255,0,0,.08) 8px,
-      transparent 8px,
-      transparent 26px
-    );
-  animation:linesMove 30s linear infinite;
-  z-index:0;
-}
-
-/* ===== LANG ===== */
+/* LANG */
 .lang{
-  position:relative;
-  z-index:2;
   display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:15px;
+  justify-content:flex-end;
+  gap:8px;
+  margin-bottom:20px;
 }
 .lang button{
-  border:none;
-  padding:6px 12px;
-  border-radius:14px;
-  font-weight:800;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.3);
+  color:#fff;
+  padding:5px 10px;
+  border-radius:8px;
+  font-size:12px;
   cursor:pointer;
-  background:linear-gradient(135deg,#ffcc00,#ff7a00);
-  box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-/* ===== LOGO ===== */
+/* LOGO */
 .logo{
-  position:relative;
-  z-index:2;
-  font-size:38px;
+  font-size:36px;
   font-weight:900;
   color:#d60000;
-  text-shadow:0 0 14px rgba(214,0,0,.8);
-  animation:pulse 2.5s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.08)}
+  letter-spacing:1px;
 }
 
 .subtitle{
-  position:relative;
-  z-index:2;
-  margin-top:8px;
-  font-size:15px;
+  margin-top:6px;
+  font-size:14px;
+  color:#bbb;
+}
+
+/* TAGS */
+.tags{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.tag{
+  border:1px solid rgba(255,255,255,0.15);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
   opacity:.85;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 .buttons{
-  position:relative;
-  z-index:2;
-  margin-top:35px;
+  margin-top:40px;
   display:flex;
   flex-direction:column;
-  gap:26px;
+  gap:16px;
 }
 
-/* BUTTON BASE */
 .btn{
-  position:relative;
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:15px;
-  padding:20px;
-  border-radius:26px;
+  justify-content:space-between;
+  padding:18px 20px;
+  border-radius:14px;
   text-decoration:none;
-  font-size:20px;
-  font-weight:900;
+  font-size:18px;
+  font-weight:700;
   color:#fff;
-  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.15);
+  background:linear-gradient(135deg,#1b1b22,#111);
 }
 
-/* BUTTON INNER LINES */
-.btn::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,.35) 0,
-      rgba(255,255,255,.35) 6px,
-      transparent 6px,
-      transparent 22px
-    );
-  animation:linesMove 18s linear infinite;
+.btn span{
+  font-size:22px;
 }
 
-/* PHONE ICON */
-.phone-icon{
-  width:36px;height:58px;
-  background:linear-gradient(#7cf7ff,#4adede);
-  border-radius:10px;
-  position:relative;
-  box-shadow:inset 0 0 0 3px #fff,0 0 15px rgba(0,0,0,.3);
-  animation:float 3s ease-in-out infinite;
-}
-.phone-icon::before{
-  content:'';
-  position:absolute;
-  top:6px;left:50%;
-  transform:translateX(-50%);
-  width:16px;height:3px;
-  background:#fff;border-radius:3px;
-}
-.phone-icon::after{
-  content:'';
-  position:absolute;
-  bottom:6px;left:50%;
-  transform:translateX(-50%);
-  width:10px;height:10px;
-  background:#fff;border-radius:50%;
+.btn:hover{
+  border-color:#d60000;
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-
-/* BUTTON COLORS */
-.btn-phone{
-  background:linear-gradient(135deg,#00c6ff,#0072ff);
-}
-.btn-acc{
-  background:linear-gradient(135deg,#ff8a00,#ff2d95);
-}
-
+/* FOOTER */
 .footer{
-  position:relative;
-  z-index:2;
   margin-top:30px;
   font-size:13px;
-  opacity:.6;
+  color:#888;
+  text-align:center;
 }
 
 /* MOBILE */
 @media(max-width:480px){
-  .logo{font-size:32px}
+  .logo{font-size:30px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="lines"></div>
-
-<!-- FLOATING WORDS -->
-<div class="word" id="w1" style="top:6%;left:6%">Најбрзо</div>
-<div class="word" id="w2" style="top:18%;right:8%">Квалитетно</div>
-<div class="word" id="w3" style="bottom:20%;left:8%">Ефикасно</div>
-<div class="word" id="w4" style="bottom:8%;right:12%">Сигурно</div>
+<div class="bg-lines"></div>
 
 <div class="main">
 
@@ -266,37 +168,45 @@ body{
   </div>
 
   <div class="logo">A Mobile</div>
-  <div class="subtitle" id="subtitle">Продажба • Сервис • Аксесоари</div>
+  <div class="subtitle" id="sub">Продажба • Сервис • Аксесоари</div>
+
+  <div class="tags">
+    <div class="tag" id="t1">Брзо</div>
+    <div class="tag" id="t2">Квалитетно</div>
+    <div class="tag" id="t3">Сигурно</div>
+  </div>
 
   <div class="buttons">
-    <a href="phones.html" class="btn btn-phone">
-      <div class="phone-icon"></div>
-      <span id="phones">Телефони</span>
+    <a href="phones.html" class="btn">
+      <div id="ph">Телефони</div>
+      <span>›</span>
     </a>
 
-    <a href="accessories.html" class="btn btn-acc">
-      🎧 <span id="acc">Аксесоари</span>
+    <a href="accessories.html" class="btn">
+      <div id="ac">Аксесоари</div>
+      <span>›</span>
     </a>
   </div>
 
   <div class="footer">📞 070 490 490</div>
+
 </div>
 
 <script>
 const t={
- mk:{sub:"Продажба • Сервис • Аксесоари",ph:"Телефони",ac:"Аксесоари",w:["Најбрзо","Квалитетно","Ефикасно","Сигурно"]},
- al:{sub:"Shitje • Servis • Aksesore",ph:"Telefona",ac:"Aksesore",w:["Më shpejtë","Cilësore","Efikase","E sigurt"]},
- tr:{sub:"Satış • Servis • Aksesuar",ph:"Telefonlar",ac:"Aksesuarlar",w:["En hızlı","Kaliteli","Verimli","Güvenli"]},
- en:{sub:"Sales • Service • Accessories",ph:"Phones",ac:"Accessories",w:["Fastest","Quality","Efficient","Secure"]}
+ mk:{sub:"Продажба • Сервис • Аксесоари",ph:"Телефони",ac:"Аксесоари",tags:["Брзо","Квалитетно","Сигурно"]},
+ al:{sub:"Shitje • Servis • Aksesore",ph:"Telefona",ac:"Aksesore",tags:["Shpejt","Cilësi","Sigurt"]},
+ tr:{sub:"Satış • Servis • Aksesuar",ph:"Telefonlar",ac:"Aksesuarlar",tags:["Hızlı","Kaliteli","Güvenli"]},
+ en:{sub:"Sales • Service • Accessories",ph:"Phones",ac:"Accessories",tags:["Fast","Quality","Secure"]}
 }
+
 function setLang(l){
- subtitle.innerText=t[l].sub;
- phones.innerText=t[l].ph;
- acc.innerText=t[l].ac;
- w1.innerText=t[l].w[0];
- w2.innerText=t[l].w[1];
- w3.innerText=t[l].w[2];
- w4.innerText=t[l].w[3];
+ sub.innerText=t[l].sub;
+ ph.innerText=t[l].ph;
+ ac.innerText=t[l].ac;
+ t1.innerText=t[l].tags[0];
+ t2.innerText=t[l].tags[1];
+ t3.innerText=t[l].tags[2];
 }
 </script>
 
