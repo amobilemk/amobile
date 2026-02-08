@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Телефони – A Mobile</title>
+<title>A Mobile – Phones</title>
 
 <style>
 body{
@@ -12,13 +12,29 @@ body{
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
 }
+
+/* HEADER */
 header{
-  padding:20px;
-  text-align:center;
-  font-size:30px;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:28px;
   font-weight:900;
   color:#d60000;
 }
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -32,15 +48,25 @@ header{
   text-align:center;
   box-shadow:0 12px 40px rgba(0,0,0,.6);
 }
+
+/* VISUAL BASE */
 .visual{
   height:170px;
   border-radius:14px;
-  background:linear-gradient(135deg,#000,#d60000);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:80px;
+  font-size:78px;
 }
+
+/* SERIES VISUALS */
+.ultra{background:linear-gradient(135deg,#000,#ff0000)}
+.pro{background:linear-gradient(135deg,#1a237e,#2979ff)}
+.standard{background:linear-gradient(135deg,#263238,#607d8b)}
+.a{background:linear-gradient(135deg,#004d40,#00e676)}
+.note{background:linear-gradient(135deg,#4a148c,#ce93d8)}
+.lite{background:linear-gradient(135deg,#ff6f00,#ffd54f)}
+
 .name{
   margin-top:10px;
   font-weight:800;
@@ -62,8 +88,8 @@ header{
 }
 .back{
   display:block;
-  margin:20px;
   text-align:center;
+  margin:20px;
   color:#aaa;
   text-decoration:none;
 }
@@ -72,52 +98,78 @@ header{
 
 <body>
 
-<header>Телефони</header>
+<header>
+  <div class="logo">A Mobile</div>
+  <div class="lang">
+    <button onclick="setLang('mk')">MK</button>
+    <button onclick="setLang('al')">AL</button>
+    <button onclick="setLang('tr')">TR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
 
 <div class="grid" id="phones"></div>
 
-<a class="back" href="index.html">← Назад</a>
+<a class="back" href="index.html" data-lang="back"></a>
 
 <script>
-const phones = [
- // iPhone
- "iPhone 15 Pro Max","iPhone 15 Pro","iPhone 15","iPhone 14 Pro","iPhone 14",
- "iPhone 13 Pro","iPhone 13","iPhone 12","iPhone 11",
+/* LANG TEXTS */
+const t={
+ mk:{back:"← Назад"},
+ al:{back:"← Kthehu"},
+ tr:{back:"← Geri"},
+ en:{back:"← Back"}
+};
 
- // Samsung
- "Samsung Galaxy S24 Ultra","Samsung Galaxy S24","Samsung Galaxy S23",
- "Samsung Galaxy A55","Samsung Galaxy A35","Samsung Galaxy A15",
+/* PHONE DATA */
+const phones=[
+ {name:"Samsung Galaxy S24 Ultra",series:"ultra",price:79990},
+ {name:"Samsung Galaxy S24",series:"pro",price:63990},
+ {name:"Samsung Galaxy A55",series:"a",price:27990},
 
- // Xiaomi / Redmi
- "Xiaomi 14","Xiaomi 13","Xiaomi 12","Redmi Note 13 Pro","Redmi Note 13",
+ {name:"iPhone 15 Pro Max",series:"ultra",price:89990},
+ {name:"iPhone 15 Pro",series:"pro",price:78990},
+ {name:"iPhone 14",series:"standard",price:55990},
 
- // Huawei / Honor
- "Huawei P60 Pro","Huawei Nova 11","Honor Magic 6","Honor X9",
+ {name:"Xiaomi 14 Ultra",series:"ultra",price:74990},
+ {name:"Xiaomi 14",series:"pro",price:54990},
+ {name:"Redmi Note 13 Pro",series:"note",price:25990},
+ {name:"Redmi 13C",series:"lite",price:12990},
 
- // OnePlus / Oppo / Vivo
- "OnePlus 12","OnePlus Nord CE","Oppo Reno 11","Vivo V29",
+ {name:"Huawei P60 Pro",series:"pro",price:62990},
+ {name:"Huawei Nova 11",series:"standard",price:32990},
 
- // Nokia / Sony / Motorola
- "Nokia X30","Nokia G60","Sony Xperia 1 V","Motorola Edge 40"
+ {name:"Honor Magic 6 Pro",series:"ultra",price:69990},
+ {name:"Honor X9",series:"lite",price:18990}
 ];
 
-let html="";
-let price=25990;
+/* RENDER */
+function render(){
+ let html="";
+ phones.forEach(p=>{
+  html+=`
+  <div class="card">
+    <div class="visual ${p.series}">📱</div>
+    <div class="name">${p.name}</div>
+    <div class="price">${p.price.toLocaleString()} ден</div>
+    <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(p.name)}" target="_blank">
+      WhatsApp
+    </a>
+  </div>`;
+ });
+ document.getElementById("phones").innerHTML=html;
+}
 
-phones.forEach(p=>{
- html+=`
- <div class="card">
-   <div class="visual">📱</div>
-   <div class="name">${p}</div>
-   <div class="price">${price.toLocaleString()} ден</div>
-   <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(p)}" target="_blank">
-     WhatsApp
-   </a>
- </div>`;
- price+=700;
-});
+/* LANGUAGE */
+function setLang(l){
+ document.querySelectorAll("[data-lang]").forEach(e=>{
+  e.innerText=t[l][e.dataset.lang];
+ });
+ localStorage.setItem("lang",l);
+}
 
-document.getElementById("phones").innerHTML=html;
+render();
+setLang(localStorage.getItem("lang")||"mk");
 </script>
 
 </body>
