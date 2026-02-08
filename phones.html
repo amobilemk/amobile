@@ -8,14 +8,14 @@
 <style>
 body{
   margin:0;
-  background:#0f0f12;
+  background:#0b0b0f;
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
 }
 header{
   padding:20px;
   text-align:center;
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
   color:#d60000;
 }
@@ -26,30 +26,26 @@ header{
   padding:20px;
 }
 .card{
-  background:#16161c;
-  border-radius:16px;
+  background:#15151b;
+  border-radius:18px;
   padding:14px;
   text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  box-shadow:0 12px 40px rgba(0,0,0,.6);
 }
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:12px;
+.visual{
+  height:170px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#000,#d60000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  filter:drop-shadow(0 0 15px rgba(255,0,0,.6));
 }
-.name{
-  margin-top:10px;
-  font-weight:700;
-}
-.price{
-  margin:6px 0;
-  color:#ff4d4d;
-  font-weight:900;
-}
-.btn{
+.name{margin-top:10px;font-weight:800}
+.price{color:#ff4d4d;font-weight:900;margin:6px 0}
+.wa{
   display:block;
-  margin-top:8px;
   padding:10px;
   border-radius:10px;
   background:#25d366;
@@ -59,8 +55,8 @@ header{
 }
 .back{
   display:block;
-  text-align:center;
   margin:20px;
+  text-align:center;
   color:#aaa;
   text-decoration:none;
 }
@@ -71,46 +67,36 @@ header{
 
 <header>Телефони</header>
 
-<div class="grid">
-
-<!-- TEMPLATE PHONE CARD -->
-<script>
-const phones=[
- "iPhone 15 Pro","iPhone 15","iPhone 14 Pro","Samsung S24 Ultra","Samsung S23",
- "Xiaomi 14","Xiaomi 13","Redmi Note 13","Oppo Reno","Vivo X",
- "Huawei P60","Huawei Nova","Honor Magic","OnePlus 12","OnePlus Nord",
- "Realme GT","Nokia X","Sony Xperia","Asus ROG","Motorola Edge"
-];
-
-phones.forEach((p,i)=>{
- document.write(`
- <div class="card">
- <img src="data:image/svg+xml;utf8,
- <svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>
- <defs>
- <linearGradient id='g${i}' x1='0' y1='0' x2='1' y2='1'>
- <stop offset='0%' stop-color='#222'/>
- <stop offset='100%' stop-color='#d60000'/>
- </linearGradient>
- </defs>
- <rect width='300' height='300' rx='30' fill='url(#g${i})'/>
- <text x='50%' y='55%' font-size='22' fill='white'
- font-family='Arial' font-weight='bold'
- text-anchor='middle'>${p}</text>
- </svg>">
- <div class="name">${p}</div>
- <div class="price">${(30000+i*500).toLocaleString()} ден</div>
- <a class="btn" href="https://wa.me/38970490490?text=Интерес%20за%20${p}" target="_blank">
- WhatsApp
- </a>
- </div>
- `)
-})
-</script>
-
-</div>
+<div class="grid" id="phones"></div>
 
 <a class="back" href="index.html">← Назад</a>
+
+<script>
+const brands=[
+ "iPhone","Samsung","Xiaomi","Redmi","Huawei","Honor",
+ "OnePlus","Oppo","Vivo","Realme","Nokia","Sony",
+ "Motorola","Asus","Google Pixel"
+];
+
+let html="";
+let price=18990;
+
+for(let b=0;b<brands.length;b++){
+ for(let i=1;i<=15;i++){
+  html+=`
+  <div class="card">
+    <div class="visual">📱</div>
+    <div class="name">${brands[b]} Model ${i}</div>
+    <div class="price">${price.toLocaleString()} ден</div>
+    <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${brands[b]}%20Model%20${i}" target="_blank">
+      WhatsApp
+    </a>
+  </div>`;
+  price+=120;
+ }
+}
+document.getElementById("phones").innerHTML=html;
+</script>
 
 </body>
 </html>
