@@ -6,95 +6,131 @@
 <title>A Mobile</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#0b0b0f;
-  color:#fff;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#f5f6fa;color:#222}
 
 /* HEADER */
 header{
+  background:#000;
+  color:#fff;
+  padding:15px 30px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
 }
 .logo{
-  font-size:30px;
+  font-size:28px;
   font-weight:900;
-  color:#d60000;
+  color:#e60000;
+}
+nav a{
+  color:#fff;
+  margin-right:20px;
+  text-decoration:none;
+  font-weight:600;
 }
 .lang button{
   margin-left:6px;
   padding:6px 10px;
   border:none;
-  border-radius:6px;
-  font-weight:700;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 /* HERO */
 .hero{
+  background:linear-gradient(to right,#000,#b00000);
+  color:#fff;
   padding:70px 20px;
   text-align:center;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,0,0,.15),
-      rgba(255,0,0,.15) 25px,
-      transparent 25px,
-      transparent 50px
-    );
 }
-.hero h1{font-size:38px;font-weight:900}
-.hero p{opacity:.9}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero p{font-size:18px}
 
-/* FEATURES */
-.features{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:25px;
+/* SECTIONS */
+.section{
+  padding:60px 40px;
 }
-.feature{
-  background:#15151b;
-  padding:10px 18px;
-  border-radius:20px;
-  font-weight:700;
+.section h2{
+  text-align:center;
+  margin-bottom:15px;
+  font-size:32px;
 }
 
-/* ACTION BUTTONS */
-.actions{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:40px;
+/* SECTION CONTACT */
+.section-contact{
+  text-align:center;
+  margin-bottom:35px;
 }
-.action{
-  width:150px;
-  height:150px;
-  border-radius:26px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  font-weight:900;
-  text-decoration:none;
+.section-contact a{
+  display:inline-block;
+  margin:5px 10px;
+  padding:12px 20px;
+  border-radius:30px;
   color:#fff;
+  font-weight:bold;
+  text-decoration:none;
 }
-.action span{font-size:60px}
+.wh-btn{background:#25D366}
+.vb-btn{background:#7360F2}
 
-.phones{background:linear-gradient(135deg,#000,#d60000)}
-.acc{background:linear-gradient(135deg,#ff8a00,#ff0066)}
-.elec{background:linear-gradient(135deg,#1f1f1f,#00c6ff)}
-
-footer{
-  margin-top:50px;
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+.card{
+  background:#fff;
+  border-radius:10px;
   padding:20px;
   text-align:center;
-  color:#aaa;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.fake-img{
+  width:100%;
+  height:140px;
+  background:#ddd;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+.price{
+  color:#c00;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+/* FLOAT CONTACT */
+.contact-fixed{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:9999;
+}
+.contact-fixed a{
+  color:#fff;
+  padding:14px 18px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  nav{display:none}
+  .hero h1{font-size:30px}
 }
 </style>
 </head>
@@ -103,76 +139,119 @@ footer{
 
 <header>
   <div class="logo">A Mobile</div>
+  <nav>
+    <a href="#phones" data-t="phones"></a>
+    <a href="#accessories" data-t="accessories"></a>
+    <a href="#electronics" data-t="electronics"></a>
+  </nav>
   <div class="lang">
     <button onclick="setLang('mk')">MK</button>
     <button onclick="setLang('al')">AL</button>
-    <button onclick="setLang('tr')">TR</button>
     <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('tr')">TR</button>
   </div>
 </header>
 
 <section class="hero">
-  <h1 data-lang="title"></h1>
-  <p data-lang="subtitle"></p>
-
-  <div class="features">
-    <div class="feature" data-lang="f1"></div>
-    <div class="feature" data-lang="f2"></div>
-    <div class="feature" data-lang="f3"></div>
-  </div>
-
-  <div class="actions">
-    <a href="phones.html" class="action phones">
-      <span>📱</span>
-      <div data-lang="phones"></div>
-    </a>
-    <a href="accessories.html" class="action acc">
-      <span>🎧</span>
-      <div data-lang="acc"></div>
-    </a>
-    <a href="electronics.html" class="action elec">
-      <span>⚡</span>
-      <div data-lang="elec"></div>
-    </a>
-  </div>
+  <h1 data-t="title"></h1>
+  <p data-t="subtitle"></p>
+  <h2>📞 070 490 490</h2>
 </section>
 
-<footer>© A Mobile • 070 490 490</footer>
+<!-- PHONES -->
+<section id="phones" class="section">
+  <h2 data-t="phones"></h2>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
+  <div class="products" id="phonesList"></div>
+</section>
+
+<!-- ACCESSORIES -->
+<section id="accessories" class="section">
+  <h2 data-t="accessories"></h2>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
+  <div class="products" id="accList"></div>
+</section>
+
+<!-- ELECTRONICS -->
+<section id="electronics" class="section">
+  <h2 data-t="electronics"></h2>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
+  <div class="products" id="elecList"></div>
+</section>
+
+<footer>
+© A Mobile – Mobile Store & Services
+</footer>
+
+<!-- FLOATING CONTACT -->
+<div class="contact-fixed">
+  <a class="wh-btn" href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a>
+  <a class="vb-btn" href="viber://chat?number=38970490490">📞 Viber</a>
+</div>
 
 <script>
 const t={
  mk:{
-  title:"A Mobile",
-  subtitle:"Продажба • Сервис • Аксесоари • Електроника",
-  f1:"Најбрзо",f2:"Ефикасно",f3:"Квалитетно",
-  phones:"Телефони",acc:"Аксесоари",elec:"Електроника"
+  title:"Mobile Store & Services",
+  subtitle:"Продажба • Сервис • Аксесоари • Откуп",
+  phones:"Телефони",
+  accessories:"Аксесоари",
+  electronics:"Електроника"
  },
  al:{
-  title:"A Mobile",
-  subtitle:"Shitje • Servis • Aksesore • Elektronikë",
-  f1:"Shpejt",f2:"Efikas",f3:"Cilësi",
-  phones:"Telefona",acc:"Aksesore",elec:"Elektronikë"
- },
- tr:{
-  title:"A Mobile",
-  subtitle:"Satış • Servis • Aksesuar • Elektronik",
-  f1:"Hızlı",f2:"Etkili",f3:"Kaliteli",
-  phones:"Telefonlar",acc:"Aksesuarlar",elec:"Elektronik"
+  title:"Mobile Store & Services",
+  subtitle:"Shitje • Servis • Aksesore • Blerje",
+  phones:"Telefona",
+  accessories:"Aksesore",
+  electronics:"Elektronikë"
  },
  en:{
-  title:"A Mobile",
-  subtitle:"Sales • Service • Accessories • Electronics",
-  f1:"Fast",f2:"Efficient",f3:"Quality",
-  phones:"Phones",acc:"Accessories",elec:"Electronics"
+  title:"Mobile Store & Services",
+  subtitle:"Sales • Service • Accessories • Buyback",
+  phones:"Phones",
+  accessories:"Accessories",
+  electronics:"Electronics"
+ },
+ tr:{
+  title:"Mobil Mağaza & Servis",
+  subtitle:"Satış • Servis • Aksesuar • Alım",
+  phones:"Telefonlar",
+  accessories:"Aksesuarlar",
+  electronics:"Elektronik"
  }
 };
+
 function setLang(l){
- localStorage.setItem("lang",l);
- document.querySelectorAll("[data-lang]").forEach(e=>{
-  e.innerText=t[l][e.dataset.lang];
+ document.querySelectorAll("[data-t]").forEach(e=>{
+  e.innerText=t[l][e.dataset.t];
  });
+ localStorage.setItem("lang",l);
 }
 setLang(localStorage.getItem("lang")||"mk");
+
+function fill(id,name){
+ let el=document.getElementById(id);
+ for(let i=1;i<=12;i++){
+  el.innerHTML+=`
+  <div class="card">
+    <div class="fake-img"></div>
+    <h4>${name} ${i}</h4>
+    <div class="price">${(i*1000)+999} ден</div>
+  </div>`;
+ }
+}
+fill("phonesList","Phone");
+fill("accList","Accessory");
+fill("elecList","Electronic");
 </script>
 
 </body>
