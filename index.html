@@ -6,95 +6,164 @@
 <title>A Mobile</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#0b0b0f;
-  color:#fff;
+  background:linear-gradient(135deg,#ff004c,#ff9a00,#7f00ff);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  color:#111;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 /* HEADER */
 header{
+  padding:20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
 }
 .logo{
-  font-size:30px;
+  font-size:34px;
   font-weight:900;
-  color:#d60000;
+  color:#ff0000;
+  text-shadow:0 0 15px rgba(255,0,0,.8);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 .lang button{
-  margin-left:6px;
-  padding:6px 10px;
   border:none;
-  border-radius:6px;
-  font-weight:700;
+  background:#fff;
+  padding:8px 12px;
+  border-radius:20px;
+  margin-left:6px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 /* HERO */
 .hero{
-  padding:70px 20px;
   text-align:center;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,0,0,.15),
-      rgba(255,0,0,.15) 25px,
-      transparent 25px,
-      transparent 50px
-    );
+  padding:70px 20px;
+  color:#fff;
 }
-.hero h1{font-size:38px;font-weight:900}
-.hero p{opacity:.9}
-
-/* FEATURES */
-.features{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:25px;
+.hero h1{
+  font-size:44px;
+  margin-bottom:15px;
 }
-.feature{
-  background:#15151b;
-  padding:10px 18px;
-  border-radius:20px;
-  font-weight:700;
+.hero p{
+  font-size:20px;
+  opacity:.95;
 }
 
-/* ACTION BUTTONS */
-.actions{
+/* BIG BUTTONS */
+.main-buttons{
   display:flex;
+  gap:25px;
   justify-content:center;
-  gap:20px;
+  margin:50px 20px;
   flex-wrap:wrap;
-  margin-top:40px;
 }
-.action{
-  width:150px;
-  height:150px;
-  border-radius:26px;
+.big-btn{
+  width:260px;
+  height:160px;
+  border-radius:30px;
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  font-weight:900;
-  text-decoration:none;
+  cursor:pointer;
+  transition:.4s;
+}
+.big-btn:hover{
+  transform:translateY(-10px) scale(1.05);
+}
+.big-btn span{
+  font-size:60px;
+}
+.big-btn h3{
+  margin-top:10px;
+  font-size:24px;
   color:#fff;
 }
-.action span{font-size:60px}
 
-.phones{background:linear-gradient(135deg,#000,#d60000)}
-.acc{background:linear-gradient(135deg,#ff8a00,#ff0066)}
-.elec{background:linear-gradient(135deg,#1f1f1f,#00c6ff)}
-
-footer{
-  margin-top:50px;
-  padding:20px;
+/* SECTIONS */
+.section{
+  padding:70px 20px;
+  background:#fff;
+  border-radius:50px 50px 0 0;
+  margin-top:40px;
+}
+.section h2{
   text-align:center;
-  color:#aaa;
+  font-size:36px;
+  margin-bottom:40px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+}
+.card{
+  background:linear-gradient(135deg,#f9f9f9,#ececec);
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,.15);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+}
+.fake-img{
+  width:100%;
+  height:120px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ff0080,#7928ca,#00f2ff);
+  margin-bottom:15px;
+  animation:shine 3s linear infinite;
+}
+@keyframes shine{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(360deg)}
+}
+.card h4{margin-bottom:8px}
+.price{color:#ff0000;font-weight:bold}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:18px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:32px}
+  .big-btn{width:100%}
 }
 </style>
 </head>
@@ -106,73 +175,104 @@ footer{
   <div class="lang">
     <button onclick="setLang('mk')">MK</button>
     <button onclick="setLang('al')">AL</button>
-    <button onclick="setLang('tr')">TR</button>
     <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('tr')">TR</button>
   </div>
 </header>
 
 <section class="hero">
-  <h1 data-lang="title"></h1>
-  <p data-lang="subtitle"></p>
-
-  <div class="features">
-    <div class="feature" data-lang="f1"></div>
-    <div class="feature" data-lang="f2"></div>
-    <div class="feature" data-lang="f3"></div>
-  </div>
-
-  <div class="actions">
-    <a href="phones.html" class="action phones">
-      <span>📱</span>
-      <div data-lang="phones"></div>
-    </a>
-    <a href="accessories.html" class="action acc">
-      <span>🎧</span>
-      <div data-lang="acc"></div>
-    </a>
-    <a href="electronics.html" class="action elec">
-      <span>⚡</span>
-      <div data-lang="elec"></div>
-    </a>
-  </div>
+  <h1 data-t="title"></h1>
+  <p data-t="subtitle"></p>
 </section>
 
-<footer>© A Mobile • 070 490 490</footer>
+<div class="main-buttons">
+  <div class="big-btn" onclick="scrollToSec('phones')">
+    <span>📱</span><h3 data-t="phones"></h3>
+  </div>
+  <div class="big-btn" onclick="scrollToSec('accessories')">
+    <span>🎧</span><h3 data-t="accessories"></h3>
+  </div>
+  <div class="big-btn" onclick="scrollToSec('electronics')">
+    <span>⚡</span><h3 data-t="electronics"></h3>
+  </div>
+</div>
+
+<div id="phones" class="section">
+<h2 data-t="phones"></h2>
+<div class="products" id="phonesList"></div>
+</div>
+
+<div id="accessories" class="section">
+<h2 data-t="accessories"></h2>
+<div class="products" id="accList"></div>
+</div>
+
+<div id="electronics" class="section">
+<h2 data-t="electronics"></h2>
+<div class="products" id="elecList"></div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/38970490490" target="_blank">
+💬 WhatsApp
+</a>
 
 <script>
-const t={
+const text={
  mk:{
-  title:"A Mobile",
-  subtitle:"Продажба • Сервис • Аксесоари • Електроника",
-  f1:"Најбрзо",f2:"Ефикасно",f3:"Квалитетно",
-  phones:"Телефони",acc:"Аксесоари",elec:"Електроника"
+  title:"Mobile Store & Services",
+  subtitle:"Најбрзо • Ефикасно • Квалитетно",
+  phones:"Телефони",
+  accessories:"Аксесоари",
+  electronics:"Електроника"
  },
  al:{
-  title:"A Mobile",
-  subtitle:"Shitje • Servis • Aksesore • Elektronikë",
-  f1:"Shpejt",f2:"Efikas",f3:"Cilësi",
-  phones:"Telefona",acc:"Aksesore",elec:"Elektronikë"
- },
- tr:{
-  title:"A Mobile",
-  subtitle:"Satış • Servis • Aksesuar • Elektronik",
-  f1:"Hızlı",f2:"Etkili",f3:"Kaliteli",
-  phones:"Telefonlar",acc:"Aksesuarlar",elec:"Elektronik"
+  title:"Mobile Store & Services",
+  subtitle:"Shpejt • Saktë • Cilësi",
+  phones:"Telefona",
+  accessories:"Aksesore",
+  electronics:"Elektronikë"
  },
  en:{
-  title:"A Mobile",
-  subtitle:"Sales • Service • Accessories • Electronics",
-  f1:"Fast",f2:"Efficient",f3:"Quality",
-  phones:"Phones",acc:"Accessories",elec:"Electronics"
+  title:"Mobile Store & Services",
+  subtitle:"Fast • Smart • Quality",
+  phones:"Phones",
+  accessories:"Accessories",
+  electronics:"Electronics"
+ },
+ tr:{
+  title:"Mobil Mağaza & Servis",
+  subtitle:"Hızlı • Akıllı • Kaliteli",
+  phones:"Telefonlar",
+  accessories:"Aksesuarlar",
+  electronics:"Elektronik"
  }
 };
+
 function setLang(l){
- localStorage.setItem("lang",l);
- document.querySelectorAll("[data-lang]").forEach(e=>{
-  e.innerText=t[l][e.dataset.lang];
+ document.querySelectorAll("[data-t]").forEach(e=>{
+  e.innerText=text[l][e.dataset.t];
  });
 }
-setLang(localStorage.getItem("lang")||"mk");
+setLang("mk");
+
+function fill(id,prefix,count){
+ let el=document.getElementById(id);
+ for(let i=1;i<=count;i++){
+  el.innerHTML+=`
+   <div class="card">
+    <div class="fake-img"></div>
+    <h4>${prefix} ${i}</h4>
+    <div class="price">${(100+i)*10} ден</div>
+   </div>`;
+ }
+}
+fill("phonesList","Model",50);
+fill("accList","Accessory",50);
+fill("elecList","Gadget",50);
+
+function scrollToSec(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
