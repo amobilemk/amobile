@@ -6,227 +6,230 @@
 <title>A Mobile</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
-}
-
-/* ===== BACKGROUND ===== */
 body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top left, #2a0000, transparent 40%),
-    radial-gradient(circle at bottom right, #000814, transparent 45%),
-    linear-gradient(120deg,#0b0b0f,#111);
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0b0b0f;
   color:#fff;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  overflow-x:hidden;
 }
 
-/* POWER LINES */
-.bg{
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,0.05) 0,
-      rgba(255,255,255,0.05) 1px,
-      transparent 1px,
-      transparent 28px
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(214,0,0,0.12) 0,
-      rgba(214,0,0,0.12) 2px,
-      transparent 2px,
-      transparent 60px
-    );
-  animation:drift 50s linear infinite;
-}
-
-@keyframes drift{
-  from{background-position:0 0,0 0}
-  to{background-position:800px 800px,-800px 800px}
-}
-
-/* ===== MAIN PANEL ===== */
-.main{
-  position:relative;
-  z-index:2;
-  width:92%;
-  max-width:480px;
-  padding:40px 32px;
-  border-radius:24px;
-  background:linear-gradient(180deg,#141418,#0d0d11);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.9),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-}
-
-/* LANG */
-.lang{
-  display:flex;
-  justify-content:flex-end;
-  gap:10px;
-}
-.lang button{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.15);
-  color:#ddd;
-  padding:6px 12px;
-  border-radius:10px;
-  font-size:12px;
-  cursor:pointer;
-}
-.lang button:hover{
-  border-color:#d60000;
-  color:#fff;
-}
-
-/* LOGO */
-.logo{
-  margin-top:20px;
-  font-size:40px;
-  font-weight:900;
-  color:#d60000;
-  letter-spacing:1.5px;
-}
-.logo span{
-  color:#fff;
-}
-
-.subtitle{
-  margin-top:8px;
-  font-size:15px;
-  color:#aaa;
-}
-
-/* DIVIDER */
-.divider{
-  margin:26px 0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,#d60000,transparent);
-}
-
-/* VALUES */
-.values{
+/* HEADER */
+header{
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
-  gap:10px;
-  text-align:center;
+  align-items:center;
 }
-.value{
-  flex:1;
-  padding:10px 6px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.03);
-  font-size:13px;
-  color:#ddd;
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:#d60000;
+}
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  padding:70px 20px;
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,0,0,.08),
+      rgba(255,0,0,.08) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+  animation:move 30s linear infinite;
+}
+.hero::after{
+  animation-direction:reverse;
+  opacity:.5;
+}
+@keyframes move{
+  from{transform:translate(-25%,-25%)}
+  to{transform:translate(0,0)}
+}
+
+.hero h1{
+  font-size:36px;
+  font-weight:900;
+  z-index:2;
+  position:relative;
+}
+.hero p{
+  margin-top:10px;
+  font-size:16px;
+  opacity:.9;
+  z-index:2;
+  position:relative;
+}
+
+/* FEATURES */
+.features{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+  z-index:2;
+  position:relative;
+}
+.feature{
+  background:#15151b;
+  padding:12px 18px;
+  border-radius:20px;
+  font-weight:700;
 }
 
 /* BUTTONS */
-.buttons{
-  margin-top:34px;
+.actions{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  z-index:2;
+  position:relative;
+}
+.action{
+  width:150px;
+  height:150px;
+  border-radius:26px;
   display:flex;
   flex-direction:column;
-  gap:18px;
-}
-.btn{
-  display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
-  padding:20px 22px;
-  border-radius:16px;
+  font-size:18px;
+  font-weight:900;
   text-decoration:none;
   color:#fff;
-  font-size:18px;
-  font-weight:700;
-  background:
-    linear-gradient(135deg,#1b1b22,#101014);
-  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
-.btn:hover{
-  border-color:#d60000;
+.phones{
+  background:linear-gradient(135deg,#000,#d60000);
 }
-.btn span{
-  font-size:22px;
-  color:#d60000;
+.acc{
+  background:linear-gradient(135deg,#ff8a00,#ff0066);
+}
+.action span{
+  font-size:60px;
+  margin-bottom:10px;
 }
 
 /* FOOTER */
-.footer{
-  margin-top:30px;
+footer{
+  margin-top:60px;
+  padding:20px;
   text-align:center;
-  font-size:13px;
-  color:#777;
-}
-
-/* MOBILE */
-@media(max-width:480px){
-  .logo{font-size:32px}
+  font-size:14px;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-
-<div class="main">
-
+<header>
+  <div class="logo">A Mobile</div>
   <div class="lang">
     <button onclick="setLang('mk')">MK</button>
     <button onclick="setLang('al')">AL</button>
     <button onclick="setLang('tr')">TR</button>
     <button onclick="setLang('en')">EN</button>
   </div>
+</header>
 
-  <div class="logo">A <span>Mobile</span></div>
-  <div class="subtitle" id="sub">Продажба • Сервис • Аксесоари</div>
+<section class="hero">
+  <h1 data-lang="title"></h1>
+  <p data-lang="subtitle"></p>
 
-  <div class="divider"></div>
-
-  <div class="values">
-    <div class="value" id="v1">Брзо</div>
-    <div class="value" id="v2">Квалитетно</div>
-    <div class="value" id="v3">Сигурно</div>
+  <div class="features">
+    <div class="feature" data-lang="f1"></div>
+    <div class="feature" data-lang="f2"></div>
+    <div class="feature" data-lang="f3"></div>
   </div>
 
-  <div class="buttons">
-    <a href="phones.html" class="btn">
-      <div id="ph">Телефони</div>
-      <span>›</span>
+  <div class="actions">
+    <a href="phones.html" class="action phones">
+      <span>📱</span>
+      <div data-lang="phones"></div>
     </a>
-    <a href="accessories.html" class="btn">
-      <div id="ac">Аксесоари</div>
-      <span>›</span>
+    <a href="accessories.html" class="action acc">
+      <span>🎧</span>
+      <div data-lang="acc"></div>
     </a>
   </div>
+</section>
 
-  <div class="footer">📞 070 490 490</div>
-
-</div>
+<footer>
+  © A Mobile • 070 490 490
+</footer>
 
 <script>
 const t={
- mk:{sub:"Продажба • Сервис • Аксесоари",ph:"Телефони",ac:"Аксесоари",v:["Брзо","Квалитетно","Сигурно"]},
- al:{sub:"Shitje • Servis • Aksesore",ph:"Telefona",ac:"Aksesore",v:["Shpejt","Cilësi","Sigurt"]},
- tr:{sub:"Satış • Servis • Aksesuar",ph:"Telefonlar",ac:"Aksesuarlar",v:["Hızlı","Kaliteli","Güvenli"]},
- en:{sub:"Sales • Service • Accessories",ph:"Phones",ac:"Accessories",v:["Fast","Quality","Secure"]}
-}
+ mk:{
+  title:"A Mobile",
+  subtitle:"Продажба • Сервис • Аксесоари • Откуп",
+  f1:"Најбрзо",
+  f2:"Ефикасно",
+  f3:"Квалитетно",
+  phones:"Телефони",
+  acc:"Аксесоари"
+ },
+ al:{
+  title:"A Mobile",
+  subtitle:"Shitje • Servis • Aksesore • Blerje",
+  f1:"Shpejt",
+  f2:"Efikas",
+  f3:"Cilësi",
+  phones:"Telefona",
+  acc:"Aksesore"
+ },
+ tr:{
+  title:"A Mobile",
+  subtitle:"Satış • Servis • Aksesuar • Alım",
+  f1:"Hızlı",
+  f2:"Etkili",
+  f3:"Kaliteli",
+  phones:"Telefonlar",
+  acc:"Aksesuarlar"
+ },
+ en:{
+  title:"A Mobile",
+  subtitle:"Sales • Service • Accessories • Buyback",
+  f1:"Fast",
+  f2:"Efficient",
+  f3:"Quality",
+  phones:"Phones",
+  acc:"Accessories"
+ }
+};
+
 function setLang(l){
- sub.innerText=t[l].sub;
- ph.innerText=t[l].ph;
- ac.innerText=t[l].ac;
- v1.innerText=t[l].v[0];
- v2.innerText=t[l].v[1];
- v3.innerText=t[l].v[2];
+ localStorage.setItem("lang",l);
+ document.querySelectorAll("[data-lang]").forEach(e=>{
+  e.innerText=t[l][e.dataset.lang];
+ });
 }
+
+setLang(localStorage.getItem("lang")||"mk");
 </script>
 
 </body>
