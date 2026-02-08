@@ -35,12 +35,22 @@ header{
 .visual{
   height:170px;
   border-radius:14px;
-  background:linear-gradient(135deg,#ff8a00,#ff0066);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:80px;
+  font-size:78px;
 }
+
+/* VISUAL TYPES */
+.charger{background:linear-gradient(135deg,#ffb300,#ff6f00)}
+.power{background:linear-gradient(135deg,#00c853,#1de9b6)}
+.audio{background:linear-gradient(135deg,#651fff,#d500f9)}
+.case{background:linear-gradient(135deg,#2979ff,#00b0ff)}
+.car{background:linear-gradient(135deg,#ff1744,#ff5252)}
+.watch{background:linear-gradient(135deg,#263238,#607d8b)}
+.photo{background:linear-gradient(135deg,#ff9100,#ffea00)}
+.other{background:linear-gradient(135deg,#8e24aa,#ec407a)}
+
 .name{
   margin-top:10px;
   font-weight:800;
@@ -80,53 +90,32 @@ header{
 
 <script>
 const accessories = [
+ {name:"Fast Charger 25W USB-C", type:"charger", icon:"🔌"},
+ {name:"Fast Charger 45W USB-C", type:"charger", icon:"⚡"},
+ {name:"Wireless Charger Pad", type:"charger", icon:"📡"},
 
- // Chargers & cables
- "Fast Charger 20W USB-C",
- "Fast Charger 25W USB-C",
- "Fast Charger 45W USB-C",
- "Wireless Charger Pad",
- "Car Charger Dual USB",
- "USB-C Cable 1m",
- "USB-C Cable 2m",
- "Lightning Cable",
- "Micro-USB Cable",
+ {name:"Power Bank 10.000mAh", type:"power", icon:"🔋"},
+ {name:"Power Bank 20.000mAh", type:"power", icon:"🔋"},
 
- // Audio
- "Wireless Earbuds Pro",
- "Bluetooth Headphones",
- "Gaming Headset",
- "Bluetooth Speaker Mini",
- "Bluetooth Speaker Bass",
+ {name:"Wireless Earbuds Pro", type:"audio", icon:"🎧"},
+ {name:"Bluetooth Headphones", type:"audio", icon:"🎶"},
+ {name:"Bluetooth Speaker", type:"audio", icon:"🔊"},
 
- // Protection
- "iPhone Silicone Case",
- "Samsung Silicone Case",
- "Clear TPU Case",
- "Rugged Shockproof Case",
- "Tempered Glass 9H",
- "Privacy Glass",
- "Camera Lens Protector",
+ {name:"iPhone Silicone Case", type:"case", icon:"📱"},
+ {name:"Samsung Clear Case", type:"case", icon:"📱"},
+ {name:"Tempered Glass 9H", type:"case", icon:"🛡️"},
 
- // Power & holders
- "Power Bank 10.000mAh",
- "Power Bank 20.000mAh",
- "MagSafe Power Bank",
- "Car Phone Holder",
- "Desk Phone Stand",
- "Bike Phone Holder",
+ {name:"Car Phone Holder", type:"car", icon:"🚗"},
+ {name:"Car Charger Dual USB", type:"car", icon:"🚘"},
 
- // Smart & extras
- "Smart Watch Series",
- "Fitness Band",
- "Selfie Stick Bluetooth",
- "Tripod Stand",
- "Phone Cleaning Kit",
- "SIM Card Adapter",
- "OTG USB Adapter",
- "USB-C to HDMI Adapter",
- "Stylus Pen",
- "Phone Cooling Fan"
+ {name:"Smart Watch Series", type:"watch", icon:"⌚"},
+ {name:"Fitness Band", type:"watch", icon:"⌚"},
+
+ {name:"Tripod Stand", type:"photo", icon:"📸"},
+ {name:"Selfie Stick Bluetooth", type:"photo", icon:"🤳"},
+
+ {name:"USB-C to HDMI Adapter", type:"other", icon:"🔄"},
+ {name:"SIM Card Adapter", type:"other", icon:"💳"}
 ];
 
 let html="";
@@ -135,10 +124,10 @@ let price=390;
 accessories.forEach(a=>{
  html+=`
  <div class="card">
-   <div class="visual">🎧</div>
-   <div class="name">${a}</div>
+   <div class="visual ${a.type}">${a.icon}</div>
+   <div class="name">${a.name}</div>
    <div class="price">${price.toLocaleString()} ден</div>
-   <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(a)}" target="_blank">
+   <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(a.name)}" target="_blank">
      WhatsApp
    </a>
  </div>`;
