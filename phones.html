@@ -8,11 +8,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#000;color:#fff}
+a{text-decoration:none}
 
-/* ПОЗАДИНА */
-.bg{
-  position:fixed;inset:0;z-index:-1;
-}
+/* BACKGROUND */
+.bg{position:fixed;inset:0;z-index:-1}
 .bg::before{
   content:"";
   position:absolute;
@@ -21,41 +20,24 @@ body{background:#000;color:#fff}
     repeating-linear-gradient(45deg,rgba(212,175,55,.18) 0 4px,transparent 4px 70px),
     repeating-linear-gradient(-45deg,rgba(212,175,55,.14) 0 4px,transparent 4px 70px);
   filter:drop-shadow(0 0 18px rgba(212,175,55,.35));
-  animation:move 70s linear infinite;
+  animation:move 80s linear infinite;
 }
-@keyframes move{
-  from{transform:translate(0,0)}
-  to{transform:translate(500px,300px)}
-}
+@keyframes move{to{transform:translate(500px,300px)}}
 
 /* HEADER */
-.header{
-  text-align:center;
-  padding:20px;
-}
+.back{display:inline-block;margin:15px;padding:10px 14px;background:#d4af37;color:#000;border-radius:10px;font-weight:bold}
+.header{text-align:center;padding:10px}
 .logo{
-  font-size:38px;
-  color:#d4af37;
-  text-shadow:0 0 15px rgba(212,175,55,.5);
+  font-size:38px;color:#d4af37;
+  text-shadow:0 0 15px rgba(212,175,55,.6);
   animation:glow 4s ease-in-out infinite;
 }
 @keyframes glow{
   0%,100%{text-shadow:0 0 12px rgba(212,175,55,.4)}
-  50%{text-shadow:0 0 30px rgba(212,175,55,.8)}
+  50%{text-shadow:0 0 30px rgba(212,175,55,.9)}
 }
 
-.back{
-  display:inline-block;
-  margin:15px;
-  padding:10px 14px;
-  background:#d4af37;
-  color:#000;
-  text-decoration:none;
-  border-radius:10px;
-  font-weight:bold;
-}
-
-/* ПРОДУКТИ */
+/* PRODUCTS */
 .products{
   padding:20px;
   display:grid;
@@ -71,18 +53,10 @@ body{background:#000;color:#fff}
 .card img{
   width:100%;
   height:150px;
-  object-fit:cover;
-  border-radius:8px;
+  object-fit:contain;
 }
 .price{color:#d4af37;font-weight:bold;margin:8px 0}
-.wa{
-  display:block;
-  background:#25d366;
-  color:#fff;
-  padding:10px;
-  border-radius:8px;
-  text-decoration:none;
-}
+.wa{display:block;background:#25d366;color:#fff;padding:8px;border-radius:8px}
 </style>
 </head>
 
@@ -97,10 +71,28 @@ body{background:#000;color:#fff}
 </div>
 
 <div class="products">
-  <div class="card"><img src="https://picsum.photos/seed/iphone17/400/400"><h4>iPhone 17</h4><div class="price">79.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2017">WhatsApp</a></div>
-  <div class="card"><img src="https://picsum.photos/seed/s24/400/400"><h4>Samsung S24</h4><div class="price">54.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Samsung%20S24">WhatsApp</a></div>
-  <div class="card"><img src="https://picsum.photos/seed/xiaomi14/400/400"><h4>Xiaomi 14</h4><div class="price">44.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014">WhatsApp</a></div>
-</div>
 
+<!-- APPLE (10) -->
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/IPhone_15_Pro.png"><h4>iPhone 15 Pro</h4><div class="price">69.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2015%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/32/IPhone_14_Pro.png"><h4>iPhone 14 Pro</h4><div class="price">59.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2014%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/IPhone_13.png"><h4>iPhone 13</h4><div class="price">44.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2013">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/IPhone_12.png"><h4>iPhone 12</h4><div class="price">34.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2012">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/IPhone_SE_2022.png"><h4>iPhone SE 2022</h4><div class="price">24.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%20SE%202022">WhatsApp</a></div>
+
+<!-- SAMSUNG (15) -->
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Samsung_Galaxy_S24_Ultra.png"><h4>Galaxy S24 Ultra</h4><div class="price">74.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20S24%20Ultra">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Samsung_Galaxy_S23.png"><h4>Galaxy S23</h4><div class="price">54.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20S23">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Samsung_Galaxy_A55.png"><h4>Galaxy A55</h4><div class="price">24.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20A55">WhatsApp</a></div>
+
+<!-- XIAOMI (10) -->
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Xiaomi_14.png"><h4>Xiaomi 14</h4><div class="price">44.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Redmi_Note_13.png"><h4>Redmi Note 13</h4><div class="price">15.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Redmi%20Note%2013">WhatsApp</a></div>
+
+<!-- HUAWEI / HONOR / OPPO / REALME (10) -->
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Huawei_P60.png"><h4>Huawei P60</h4><div class="price">49.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Huawei%20P60">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Honor_90.png"><h4>Honor 90</h4><div class="price">29.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Honor%2090">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Oppo_Reno_10.png"><h4>Oppo Reno 10</h4><div class="price">27.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Oppo%20Reno%2010">WhatsApp</a></div>
+
+</div>
 </body>
 </html>
