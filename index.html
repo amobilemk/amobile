@@ -13,7 +13,7 @@
   font-family:'Arial Rounded MT Bold', Arial, sans-serif;
 }
 
-/* BACKGROUND */
+/* ===== BACKGROUND ===== */
 body{
   min-height:100vh;
   background:linear-gradient(120deg,#ff5f5f,#ffd36a,#7cf7ff,#b388ff);
@@ -31,11 +31,39 @@ body{
   100%{background-position:0% 50%}
 }
 
-/* FLOATING WORDS */
+/* ===== DIAGONAL CANDY LINES ===== */
+.lines{
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.25) 0px,
+      rgba(255,255,255,.25) 12px,
+      transparent 12px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.18) 0px,
+      rgba(255,255,255,.18) 10px,
+      transparent 10px,
+      transparent 35px
+    );
+  animation:linesMove 25s linear infinite;
+  z-index:0;
+}
+
+@keyframes linesMove{
+  from{background-position:0 0, 0 0}
+  to{background-position:600px 600px, -600px -600px}
+}
+
+/* ===== FLOATING WORDS ===== */
 .word{
   position:absolute;
   font-weight:900;
-  font-size:28px;
+  font-size:26px;
   opacity:.25;
   color:#fff;
   animation:spinFloat 16s linear infinite;
@@ -44,25 +72,45 @@ body{
 
 @keyframes spinFloat{
   0%{transform:rotate(0deg) translateY(0)}
-  50%{transform:rotate(180deg) translateY(-40px)}
+  50%{transform:rotate(180deg) translateY(-35px)}
   100%{transform:rotate(360deg) translateY(0)}
 }
 
-/* MAIN CARD */
+/* ===== MAIN CARD ===== */
 .main{
   position:relative;
   z-index:2;
-  background:rgba(255,255,255,.9);
-  border-radius:32px;
-  padding:35px 28px 40px;
+  background:rgba(255,255,255,.92);
+  border-radius:34px;
+  padding:35px 28px 42px;
   width:90%;
   max-width:420px;
   text-align:center;
-  box-shadow:0 25px 50px rgba(0,0,0,.25);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+  overflow:hidden;
 }
 
-/* LANG SWITCH */
+/* INNER LINES (INSIDE CARD) */
+.main::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,0,0,.08) 0,
+      rgba(255,0,0,.08) 8px,
+      transparent 8px,
+      transparent 26px
+    );
+  animation:linesMove 30s linear infinite;
+  z-index:0;
+}
+
+/* ===== LANG ===== */
 .lang{
+  position:relative;
+  z-index:2;
   display:flex;
   justify-content:center;
   gap:10px;
@@ -71,19 +119,21 @@ body{
 .lang button{
   border:none;
   padding:6px 12px;
-  border-radius:12px;
+  border-radius:14px;
   font-weight:800;
   cursor:pointer;
   background:linear-gradient(135deg,#ffcc00,#ff7a00);
   box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .logo{
+  position:relative;
+  z-index:2;
   font-size:38px;
   font-weight:900;
   color:#d60000;
-  text-shadow:0 0 12px rgba(214,0,0,.8);
+  text-shadow:0 0 14px rgba(214,0,0,.8);
   animation:pulse 2.5s infinite;
 }
 
@@ -93,33 +143,56 @@ body{
 }
 
 .subtitle{
+  position:relative;
+  z-index:2;
   margin-top:8px;
   font-size:15px;
   opacity:.85;
 }
 
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 .buttons{
+  position:relative;
+  z-index:2;
   margin-top:35px;
   display:flex;
   flex-direction:column;
-  gap:24px;
+  gap:26px;
 }
 
+/* BUTTON BASE */
 .btn{
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:15px;
-  padding:18px;
-  border-radius:22px;
+  padding:20px;
+  border-radius:26px;
   text-decoration:none;
   font-size:20px;
-  font-weight:800;
+  font-weight:900;
   color:#fff;
+  overflow:hidden;
 }
 
-/* CARTOON PHONE */
+/* BUTTON INNER LINES */
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.35) 0,
+      rgba(255,255,255,.35) 6px,
+      transparent 6px,
+      transparent 22px
+    );
+  animation:linesMove 18s linear infinite;
+}
+
+/* PHONE ICON */
 .phone-icon{
   width:36px;height:58px;
   background:linear-gradient(#7cf7ff,#4adede);
@@ -159,7 +232,9 @@ body{
 }
 
 .footer{
-  margin-top:28px;
+  position:relative;
+  z-index:2;
+  margin-top:30px;
   font-size:13px;
   opacity:.6;
 }
@@ -173,11 +248,13 @@ body{
 
 <body>
 
+<div class="lines"></div>
+
 <!-- FLOATING WORDS -->
-<div class="word" id="w1" style="top:8%;left:5%">Најбрзо</div>
-<div class="word" id="w2" style="top:20%;right:6%">Квалитетно</div>
-<div class="word" id="w3" style="bottom:18%;left:8%">Ефикасно</div>
-<div class="word" id="w4" style="bottom:8%;right:10%">Сигурно</div>
+<div class="word" id="w1" style="top:6%;left:6%">Најбрзо</div>
+<div class="word" id="w2" style="top:18%;right:8%">Квалитетно</div>
+<div class="word" id="w3" style="bottom:20%;left:8%">Ефикасно</div>
+<div class="word" id="w4" style="bottom:8%;right:12%">Сигурно</div>
 
 <div class="main">
 
@@ -207,40 +284,19 @@ body{
 
 <script>
 const t={
- mk:{
-  sub:"Продажба • Сервис • Аксесоари",
-  ph:"Телефони",
-  ac:"Аксесоари",
-  w:["Најбрзо","Квалитетно","Ефикасно","Сигурно"]
- },
- al:{
-  sub:"Shitje • Servis • Aksesore",
-  ph:"Telefona",
-  ac:"Aksesore",
-  w:["Më shpejtë","Cilësore","Efikase","E sigurt"]
- },
- tr:{
-  sub:"Satış • Servis • Aksesuar",
-  ph:"Telefonlar",
-  ac:"Aksesuarlar",
-  w:["En hızlı","Kaliteli","Verimli","Güvenli"]
- },
- en:{
-  sub:"Sales • Service • Accessories",
-  ph:"Phones",
-  ac:"Accessories",
-  w:["Fastest","Quality","Efficient","Secure"]
- }
+ mk:{sub:"Продажба • Сервис • Аксесоари",ph:"Телефони",ac:"Аксесоари",w:["Најбрзо","Квалитетно","Ефикасно","Сигурно"]},
+ al:{sub:"Shitje • Servis • Aksesore",ph:"Telefona",ac:"Aksesore",w:["Më shpejtë","Cilësore","Efikase","E sigurt"]},
+ tr:{sub:"Satış • Servis • Aksesuar",ph:"Telefonlar",ac:"Aksesuarlar",w:["En hızlı","Kaliteli","Verimli","Güvenli"]},
+ en:{sub:"Sales • Service • Accessories",ph:"Phones",ac:"Accessories",w:["Fastest","Quality","Efficient","Secure"]}
 }
-
 function setLang(l){
- document.getElementById("subtitle").innerText=t[l].sub;
- document.getElementById("phones").innerText=t[l].ph;
- document.getElementById("acc").innerText=t[l].ac;
- document.getElementById("w1").innerText=t[l].w[0];
- document.getElementById("w2").innerText=t[l].w[1];
- document.getElementById("w3").innerText=t[l].w[2];
- document.getElementById("w4").innerText=t[l].w[3];
+ subtitle.innerText=t[l].sub;
+ phones.innerText=t[l].ph;
+ acc.innerText=t[l].ac;
+ w1.innerText=t[l].w[0];
+ w2.innerText=t[l].w[1];
+ w3.innerText=t[l].w[2];
+ w4.innerText=t[l].w[3];
 }
 </script>
 
