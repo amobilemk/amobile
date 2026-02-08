@@ -8,11 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#000;color:#fff}
-
-/* ПОЗАДИНА */
-.bg{
-  position:fixed;inset:0;z-index:-1;
-}
+.bg{position:fixed;inset:0;z-index:-1}
 .bg::before{
   content:"";
   position:absolute;
@@ -21,68 +17,22 @@ body{background:#000;color:#fff}
     repeating-linear-gradient(45deg,rgba(212,175,55,.18) 0 4px,transparent 4px 70px),
     repeating-linear-gradient(-45deg,rgba(212,175,55,.14) 0 4px,transparent 4px 70px);
   filter:drop-shadow(0 0 18px rgba(212,175,55,.35));
-  animation:move 70s linear infinite;
+  animation:move 80s linear infinite;
 }
-@keyframes move{
-  from{transform:translate(0,0)}
-  to{transform:translate(500px,300px)}
-}
+@keyframes move{to{transform:translate(500px,300px)}}
 
-/* HEADER */
-.header{
-  text-align:center;
-  padding:20px;
-}
-.logo{
-  font-size:38px;
-  color:#d4af37;
-  text-shadow:0 0 15px rgba(212,175,55,.5);
-  animation:glow 4s ease-in-out infinite;
-}
-@keyframes glow{
-  0%,100%{text-shadow:0 0 12px rgba(212,175,55,.4)}
-  50%{text-shadow:0 0 30px rgba(212,175,55,.8)}
-}
+.back{display:inline-block;margin:15px;padding:10px 14px;background:#d4af37;color:#000;border-radius:10px;font-weight:bold}
 
-.back{
-  display:inline-block;
-  margin:15px;
-  padding:10px 14px;
-  background:#d4af37;
-  color:#000;
-  text-decoration:none;
-  border-radius:10px;
-  font-weight:bold;
-}
-
-/* ПРОДУКТИ */
 .products{
   padding:20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:20px;
 }
-.card{
-  background:#111;
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-}
-.card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:8px;
-}
+.card{background:#111;padding:15px;border-radius:12px;text-align:center}
+.card img{width:100%;height:140px;object-fit:contain}
 .price{color:#d4af37;font-weight:bold;margin:8px 0}
-.wa{
-  display:block;
-  background:#25d366;
-  color:#fff;
-  padding:10px;
-  border-radius:8px;
-  text-decoration:none;
-}
+.wa{display:block;background:#25d366;color:#fff;padding:8px;border-radius:8px}
 </style>
 </head>
 
@@ -91,16 +41,14 @@ body{background:#000;color:#fff}
 
 <a href="index.html" class="back">⬅ Назад</a>
 
-<div class="header">
-  <div class="logo">A Mobile</div>
-  <p>Аксесоари</p>
-</div>
-
 <div class="products">
-  <div class="card"><img src="https://picsum.photos/seed/airpods/400/400"><h4>AirPods Pro</h4><div class="price">14.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=AirPods%20Pro">WhatsApp</a></div>
-  <div class="card"><img src="https://picsum.photos/seed/charger/400/400"><h4>Fast Charger</h4><div class="price">2.490 ден</div><a class="wa" href="https://wa.me/38970490490?text=Fast%20Charger">WhatsApp</a></div>
-  <div class="card"><img src="https://picsum.photos/seed/case/400/400"><h4>Заштитна Маска</h4><div class="price">990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Maska">WhatsApp</a></div>
-</div>
 
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/AirPods_Pro.png"><h4>AirPods Pro</h4><div class="price">14.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=AirPods%20Pro">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/USB-C_charger.png"><h4>Fast Charger 65W</h4><div class="price">2.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Fast%20Charger">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Power_bank_20000mAh.png"><h4>Power Bank 20000mAh</h4><div class="price">3.490 ден</div><a class="wa" href="https://wa.me/38970490490?text=Power%20Bank">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/USB-C_cable.png"><h4>USB-C Кабел</h4><div class="price">490 ден</div><a class="wa" href="https://wa.me/38970490490?text=USB-C%20Cable">WhatsApp</a></div>
+<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Phone_case.png"><h4>Заштитна Маска</h4><div class="price">990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Maska">WhatsApp</a></div>
+
+</div>
 </body>
 </html>
