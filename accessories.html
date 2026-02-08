@@ -6,36 +6,68 @@
 <title>Аксесоари – A Mobile</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#000;color:#fff}
-header{padding:15px;text-align:center;background:#111;color:#d4af37;font-size:22px}
-.back{display:block;text-align:center;margin:10px;color:#d4af37;text-decoration:none}
+body{
+  margin:0;
+  font-family:Arial;
+  background:#000;
+  color:#fff;
+}
+header{
+  padding:15px;
+  text-align:center;
+  background:#111;
+  color:#d4af37;
+  font-size:22px;
+}
+.back{
+  display:block;
+  text-align:center;
+  margin:10px;
+  color:#d4af37;
+  text-decoration:none;
+}
 .products{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
- gap:15px;
- padding:15px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+  padding:16px;
 }
 .card{
- background:#111;
- border-radius:12px;
- padding:10px;
- text-align:center;
- box-shadow:0 0 20px rgba(212,175,55,.2)
+  background:#111;
+  border-radius:16px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(212,175,55,.15);
 }
-.card img{
- width:100%;
- height:140px;
- object-fit:contain;
+.acc-box{
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle at top,#d4af37,#000);
+  box-shadow:0 0 30px rgba(212,175,55,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  animation:pulse 4s ease-in-out infinite;
 }
-.price{color:#d4af37;font-weight:bold;margin:6px 0}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 20px rgba(212,175,55,.4)}
+  50%{box-shadow:0 0 40px rgba(212,175,55,.7)}
+}
+.price{
+  color:#d4af37;
+  font-weight:bold;
+  margin:6px 0;
+}
 .wa{
- display:block;
- padding:8px;
- background:#25d366;
- color:#000;
- border-radius:8px;
- text-decoration:none;
- font-weight:bold
+  display:block;
+  margin-top:6px;
+  padding:8px;
+  background:#25d366;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -47,27 +79,38 @@ header{padding:15px;text-align:center;background:#111;color:#d4af37;font-size:22
 
 <div class="products">
 
-<div class="card">
-<img src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-<circle cx='100' cy='100' r='90' fill='%23222'/>
-<text x='100' y='110' fill='%23d4af37' font-size='16' text-anchor='middle'>AirPods</text>
-</svg>">
-<h4>AirPods Pro</h4>
-<div class="price">14.990 ден</div>
-<a class="wa" href="https://wa.me/38970490490?text=AirPods%20Pro">WhatsApp</a>
-</div>
+<script>
+const acc=[
+"AirPods Pro","AirPods 3","Bluetooth слушалки","Жични слушалки",
+"Fast Charger 65W","Fast Charger 25W","Wireless Charger",
+"Power Bank 10.000mAh","Power Bank 20.000mAh",
+"USB-C кабел","Lightning кабел","Micro USB кабел",
+"Заштитна маска","Силиконска маска","Кожна маска",
+"Заштитно стакло","Privacy стакло","Camera стакло",
+"Car charger","Car holder","MagSafe holder",
+"Smartwatch","Fitness band",
+"Bluetooth звучник","Mini звучник",
+"Memory card 64GB","Memory card 128GB",
+"USB Flash","OTG адаптер",
+"Phone stand","Tripod",
+"Selfie stick","Ring light",
+"Gaming controller","Cooling fan",
+"SIM adapter","SIM игла",
+"Cleaning kit","Cable organizer",
+"Headphone splitter","FM transmitter"
+];
 
+document.write(
+acc.map(a=>`
 <div class="card">
-<img src="data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-<rect x='30' y='30' width='140' height='140' rx='20' fill='%23222'/>
-<text x='100' y='115' fill='%23d4af37' font-size='14' text-anchor='middle'>Charger</text>
-</svg>">
-<h4>Fast Charger 65W</h4>
-<div class="price">2.990 ден</div>
-<a class="wa" href="https://wa.me/38970490490?text=Fast%20Charger">WhatsApp</a>
+  <div class="acc-box">${a}</div>
+  <h4>${a}</h4>
+  <div class="price">Цена на барање</div>
+  <a class="wa" href="https://wa.me/38970490490?text=${encodeURIComponent(a)}">WhatsApp</a>
 </div>
+`).join("")
+);
+</script>
 
 </div>
 </body>
