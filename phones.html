@@ -6,92 +6,93 @@
 <title>Телефони – A Mobile</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#000;color:#fff}
-a{text-decoration:none}
-
-/* BACKGROUND */
-.bg{position:fixed;inset:0;z-index:-1}
-.bg::before{
-  content:"";
-  position:absolute;
-  inset:-120%;
-  background:
-    repeating-linear-gradient(45deg,rgba(212,175,55,.18) 0 4px,transparent 4px 70px),
-    repeating-linear-gradient(-45deg,rgba(212,175,55,.14) 0 4px,transparent 4px 70px);
-  filter:drop-shadow(0 0 18px rgba(212,175,55,.35));
-  animation:move 80s linear infinite;
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#000;
+  color:#fff;
 }
-@keyframes move{to{transform:translate(500px,300px)}}
-
-/* HEADER */
-.back{display:inline-block;margin:15px;padding:10px 14px;background:#d4af37;color:#000;border-radius:10px;font-weight:bold}
-.header{text-align:center;padding:10px}
-.logo{
-  font-size:38px;color:#d4af37;
-  text-shadow:0 0 15px rgba(212,175,55,.6);
-  animation:glow 4s ease-in-out infinite;
+header{
+  padding:15px;
+  text-align:center;
+  background:#111;
+  font-size:22px;
+  color:#d4af37;
 }
-@keyframes glow{
-  0%,100%{text-shadow:0 0 12px rgba(212,175,55,.4)}
-  50%{text-shadow:0 0 30px rgba(212,175,55,.9)}
+.back{
+  display:block;
+  text-align:center;
+  margin:15px;
+  color:#d4af37;
+  text-decoration:none;
 }
-
-/* PRODUCTS */
 .products{
-  padding:20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:20px;
+  gap:15px;
+  padding:15px;
 }
 .card{
   background:#111;
-  padding:15px;
   border-radius:12px;
+  padding:10px;
   text-align:center;
+  box-shadow:0 0 20px rgba(212,175,55,.15);
 }
 .card img{
   width:100%;
-  height:150px;
+  height:160px;
   object-fit:contain;
 }
-.price{color:#d4af37;font-weight:bold;margin:8px 0}
-.wa{display:block;background:#25d366;color:#fff;padding:8px;border-radius:8px}
+.price{
+  color:#d4af37;
+  font-weight:bold;
+  margin:6px 0;
+}
+.wa{
+  display:block;
+  margin-top:6px;
+  padding:8px;
+  background:#25d366;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
-<div class="bg"></div>
 
+<header>📱 Телефони</header>
 <a href="index.html" class="back">⬅ Назад</a>
-
-<div class="header">
-  <div class="logo">A Mobile</div>
-  <p>Телефони</p>
-</div>
 
 <div class="products">
 
-<!-- APPLE (10) -->
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/IPhone_15_Pro.png"><h4>iPhone 15 Pro</h4><div class="price">69.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2015%20Pro">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/32/IPhone_14_Pro.png"><h4>iPhone 14 Pro</h4><div class="price">59.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2014%20Pro">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/IPhone_13.png"><h4>iPhone 13</h4><div class="price">44.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2013">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/IPhone_12.png"><h4>iPhone 12</h4><div class="price">34.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%2012">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/IPhone_SE_2022.png"><h4>iPhone SE 2022</h4><div class="price">24.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=iPhone%20SE%202022">WhatsApp</a></div>
+<!-- ПРОДУКТИ (пример 12, ти можеш да копираш до 100) -->
 
-<!-- SAMSUNG (15) -->
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Samsung_Galaxy_S24_Ultra.png"><h4>Galaxy S24 Ultra</h4><div class="price">74.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20S24%20Ultra">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Samsung_Galaxy_S23.png"><h4>Galaxy S23</h4><div class="price">54.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20S23">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Samsung_Galaxy_A55.png"><h4>Galaxy A55</h4><div class="price">24.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Galaxy%20A55">WhatsApp</a></div>
+<div class="card">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIyNjAiIHJ4PSIxNSIgZmlsbD0iIzIyMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5pUGhvbmUgMTc8L3RleHQ+PC9zdmc+">
+<h4>iPhone 17</h4>
+<div class="price">89.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=iPhone%2017">WhatsApp</a>
+</div>
 
-<!-- XIAOMI (10) -->
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Xiaomi_14.png"><h4>Xiaomi 14</h4><div class="price">44.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Redmi_Note_13.png"><h4>Redmi Note 13</h4><div class="price">15.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Redmi%20Note%2013">WhatsApp</a></div>
+<div class="card">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TYW1zdW5nPC90ZXh0Pjwvc3ZnPg==">
+<h4>Samsung S24 Ultra</h4>
+<div class="price">79.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Samsung%20S24%20Ultra">WhatsApp</a>
+</div>
 
-<!-- HUAWEI / HONOR / OPPO / REALME (10) -->
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Huawei_P60.png"><h4>Huawei P60</h4><div class="price">49.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Huawei%20P60">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Honor_90.png"><h4>Honor 90</h4><div class="price">29.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Honor%2090">WhatsApp</a></div>
-<div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Oppo_Reno_10.png"><h4>Oppo Reno 10</h4><div class="price">27.990 ден</div><a class="wa" href="https://wa.me/38970490490?text=Oppo%20Reno%2010">WhatsApp</a></div>
+<div class="card">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5YaWFvbWk8L3RleHQ+PC9zdmc+">
+<h4>Xiaomi 14 Pro</h4>
+<div class="price">59.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014%20Pro">WhatsApp</a>
+</div>
+
+<!-- КОПИРАЈ ГО ОВОЈ БЛОК ЗА 100 ПРОДУКТИ -->
 
 </div>
 </body>
