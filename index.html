@@ -18,9 +18,24 @@ header{
   justify-content:space-between;
   align-items:center;
 }
-.logo{font-size:28px;font-weight:900;color:#e60000}
-nav a{color:#fff;margin-right:20px;text-decoration:none;font-weight:600}
-.lang button{margin-left:6px;padding:6px 10px;border:none;cursor:pointer;font-weight:bold}
+.logo{
+  font-size:28px;
+  font-weight:900;
+  color:#e60000;
+}
+nav a{
+  color:#fff;
+  margin-right:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
 
 /* HERO */
 .hero{
@@ -33,25 +48,31 @@ nav a{color:#fff;margin-right:20px;text-decoration:none;font-weight:600}
 .hero p{font-size:18px}
 
 /* SECTIONS */
-.section{padding:60px 40px}
-.section h2{text-align:center;margin-bottom:15px;font-size:32px}
+.section{
+  padding:60px 40px;
+}
+.section h2{
+  text-align:center;
+  margin-bottom:15px;
+  font-size:32px;
+}
 
 /* SECTION CONTACT */
 .section-contact{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:35px;
 }
 .section-contact a{
   display:inline-block;
-  margin:6px 10px;
-  padding:12px 22px;
+  margin:5px 10px;
+  padding:12px 20px;
   border-radius:30px;
   color:#fff;
   font-weight:bold;
   text-decoration:none;
 }
-.wh{background:#25D366}
-.vb{background:#7360F2}
+.wh-btn{background:#25D366}
+.vb-btn{background:#7360F2}
 
 /* PRODUCTS */
 .products{
@@ -73,7 +94,11 @@ nav a{color:#fff;margin-right:20px;text-decoration:none;font-weight:600}
   border-radius:8px;
   margin-bottom:15px;
 }
-.price{color:#c00;font-weight:bold;margin-top:8px}
+.price{
+  color:#c00;
+  font-weight:bold;
+  margin:10px 0;
+}
 
 /* FLOAT CONTACT */
 .contact-fixed{
@@ -95,7 +120,12 @@ nav a{color:#fff;margin-right:20px;text-decoration:none;font-weight:600}
 }
 
 /* FOOTER */
-footer{background:#000;color:#fff;text-align:center;padding:20px}
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
 
 /* MOBILE */
 @media(max-width:600px){
@@ -131,91 +161,81 @@ footer{background:#000;color:#fff;text-align:center;padding:20px}
 <!-- PHONES -->
 <section id="phones" class="section">
   <h2 data-t="phones"></h2>
-  <div class="section-contact" id="contact-phones"></div>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
   <div class="products" id="phonesList"></div>
 </section>
 
 <!-- ACCESSORIES -->
 <section id="accessories" class="section">
   <h2 data-t="accessories"></h2>
-  <div class="section-contact" id="contact-accessories"></div>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
   <div class="products" id="accList"></div>
 </section>
 
 <!-- ELECTRONICS -->
 <section id="electronics" class="section">
   <h2 data-t="electronics"></h2>
-  <div class="section-contact" id="contact-electronics"></div>
+  <div class="section-contact">
+    <a href="https://wa.me/38970490490" target="_blank" class="wh-btn">💬 WhatsApp</a>
+    <a href="viber://chat?number=38970490490" class="vb-btn">📞 Viber</a>
+  </div>
   <div class="products" id="elecList"></div>
 </section>
 
-<footer>© A Mobile – Mobile Store & Services</footer>
+<footer>
+© A Mobile – Mobile Store & Services
+</footer>
 
-<!-- FLOAT -->
-<div class="contact-fixed" id="contact-float"></div>
+<!-- FLOATING CONTACT -->
+<div class="contact-fixed">
+  <a class="wh-btn" href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a>
+  <a class="vb-btn" href="viber://chat?number=38970490490">📞 Viber</a>
+</div>
 
 <script>
-const text={
+const t={
  mk:{
   title:"Mobile Store & Services",
   subtitle:"Продажба • Сервис • Аксесоари • Откуп",
   phones:"Телефони",
   accessories:"Аксесоари",
-  electronics:"Електроника",
-  msg:"Здраво, сакам повеќе информации."
+  electronics:"Електроника"
  },
  al:{
   title:"Mobile Store & Services",
   subtitle:"Shitje • Servis • Aksesore • Blerje",
   phones:"Telefona",
   accessories:"Aksesore",
-  electronics:"Elektronikë",
-  msg:"Përshëndetje, dua më shumë informacion."
+  electronics:"Elektronikë"
  },
  en:{
   title:"Mobile Store & Services",
   subtitle:"Sales • Service • Accessories • Buyback",
   phones:"Phones",
   accessories:"Accessories",
-  electronics:"Electronics",
-  msg:"Hello, I would like more information."
+  electronics:"Electronics"
  },
  tr:{
   title:"Mobil Mağaza & Servis",
   subtitle:"Satış • Servis • Aksesuar • Alım",
   phones:"Telefonlar",
   accessories:"Aksesuarlar",
-  electronics:"Elektronik",
-  msg:"Merhaba, daha fazla bilgi almak istiyorum."
+  electronics:"Elektronik"
  }
 };
 
-let currentLang="mk";
-
 function setLang(l){
- currentLang=l;
  document.querySelectorAll("[data-t]").forEach(e=>{
-  e.innerText=text[l][e.dataset.t];
+  e.innerText=t[l][e.dataset.t];
  });
- buildContacts();
  localStorage.setItem("lang",l);
 }
-
-function buildContacts(){
- const msg=encodeURIComponent(text[currentLang].msg);
- const wa=`https://wa.me/38970490490?text=${msg}`;
- const vb=`viber://chat?number=38970490490`;
-
- const html=`
-   <a class="wh" href="${wa}" target="_blank">💬 WhatsApp</a>
-   <a class="vb" href="${vb}">📞 Viber</a>
- `;
- document.getElementById("contact-phones").innerHTML=html;
- document.getElementById("contact-accessories").innerHTML=html;
- document.getElementById("contact-electronics").innerHTML=html;
- document.getElementById("contact-float").innerHTML=html;
-}
-
 setLang(localStorage.getItem("lang")||"mk");
 
 function fill(id,name){
