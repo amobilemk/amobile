@@ -6,8 +6,55 @@
 <title>A Mobile</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#000;color:#fff}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  overflow:hidden;
+  color:#fff;
+}
+
+/* === АНИМИРАНА ПОЗАДИНА === */
+.background{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:-2;
+  overflow:hidden;
+}
+
+.background::before,
+.background::after{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(212,175,55,0.25) 0px,
+      rgba(212,175,55,0.25) 2px,
+      transparent 2px,
+      transparent 40px
+    );
+  animation: moveLines 20s linear infinite;
+}
+
+.background::after{
+  transform:rotate(-45deg);
+  opacity:0.6;
+  animation-duration:30s;
+}
+
+@keyframes moveLines{
+  from{transform:translateX(0) translateY(0);}
+  to{transform:translateX(200px) translateY(200px);}
+}
+
+/* === СОДРЖИНА === */
 .hero{
   min-height:100vh;
   display:flex;
@@ -15,71 +62,80 @@ body{background:#000;color:#fff}
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:
-    linear-gradient(120deg,#000,#111),
-    repeating-linear-gradient(-45deg,transparent 0 20px,rgba(212,175,55,.25) 20px 40px);
+  padding:20px;
 }
-h1{font-size:42px;color:#d4af37}
-p{margin:10px 0 30px}
+
+h1{
+  font-size:44px;
+  color:#d4af37;
+  margin-bottom:10px;
+}
+
+p{
+  margin-bottom:30px;
+  font-size:18px;
+}
+
 .buttons{
   display:flex;
   gap:20px;
-  width:90%;
-  max-width:500px;
+  width:100%;
+  max-width:420px;
 }
-a.main{
+
+.main-btn{
   flex:1;
-  padding:20px;
+  padding:18px;
   background:#d4af37;
   color:#000;
-  font-weight:bold;
   text-decoration:none;
+  font-weight:bold;
   border-radius:14px;
+  transition:transform .2s;
 }
+
+.main-btn:hover{
+  transform:scale(1.05);
+}
+
+.phone{
+  margin-top:25px;
+  font-size:18px;
+}
+
+.lang{
+  margin-top:20px;
+}
+
 .lang button{
-  margin:6px;
+  margin:4px;
   padding:6px 10px;
   font-weight:bold;
+  border:none;
+  cursor:pointer;
 }
-@media(max-width:600px){.buttons{flex-direction:column}}
+
+@media(max-width:600px){
+  .buttons{flex-direction:column;}
+}
 </style>
 </head>
 
 <body>
 
+<div class="background"></div>
+
 <div class="hero">
-  <h1 data-t="title">A Mobile</h1>
-  <p data-t="subtitle">Продажба • Сервис • Аксесоари</p>
+  <h1>A Mobile</h1>
+  <p>Продажба • Сервис • Телефони • Аксесоари</p>
 
   <div class="buttons">
-    <a class="main" href="phones.html" data-t="phones">📱 Телефони</a>
-    <a class="main" href="accessories.html" data-t="accessories">🎧 Аксесоари</a>
+    <a href="phones.html" class="main-btn">📱 Телефони</a>
+    <a href="accessories.html" class="main-btn">🎧 Аксесоари</a>
   </div>
 
-  <br>
-  <strong>📞 070 490 490</strong>
-
-  <div class="lang">
-    <button onclick="setLang('mk')">MK</button>
-    <button onclick="setLang('al')">AL</button>
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('tr')">TR</button>
-  </div>
+  <div class="phone">📞 070 490 490</div>
 </div>
-
-<script>
-const t={
-mk:{title:"A Mobile",subtitle:"Продажба • Сервис • Аксесоари",phones:"Телефони",accessories:"Аксесоари"},
-al:{title:"A Mobile",subtitle:"Shitje • Servis • Aksesore",phones:"Telefona",accessories:"Aksesore"},
-en:{title:"A Mobile",subtitle:"Sales • Service • Accessories",phones:"Phones",accessories:"Accessories"},
-tr:{title:"A Mobile",subtitle:"Satış • Servis • Aksesuar",phones:"Telefonlar",accessories:"Aksesuarlar"}
-};
-function setLang(l){
-localStorage.setItem("lang",l);
-document.querySelectorAll("[data-t]").forEach(e=>e.innerText=t[l][e.dataset.t]);
-}
-setLang(localStorage.getItem("lang")||"mk");
-</script>
 
 </body>
 </html>
