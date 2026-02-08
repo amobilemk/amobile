@@ -6,58 +6,38 @@
 <title>Телефони – A Mobile</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#000;
-  color:#fff;
-}
-header{
-  padding:15px;
-  text-align:center;
-  background:#111;
-  font-size:22px;
-  color:#d4af37;
-}
-.back{
-  display:block;
-  text-align:center;
-  margin:15px;
-  color:#d4af37;
-  text-decoration:none;
-}
+body{margin:0;font-family:Arial;background:#000;color:#fff}
+header{padding:15px;text-align:center;background:#111;color:#d4af37;font-size:22px}
+a.back{display:block;text-align:center;margin:10px;color:#d4af37;text-decoration:none}
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:15px;
-  padding:15px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+ gap:15px;
+ padding:15px
 }
 .card{
-  background:#111;
-  border-radius:12px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0 0 20px rgba(212,175,55,.15);
+ background:#111;
+ border-radius:12px;
+ padding:10px;
+ text-align:center;
+ box-shadow:0 0 15px rgba(212,175,55,.2)
 }
 .card img{
-  width:100%;
-  height:160px;
-  object-fit:contain;
+ width:100%;
+ height:160px;
+ object-fit:contain;
+ background:#000;
+ border-radius:8px
 }
-.price{
-  color:#d4af37;
-  font-weight:bold;
-  margin:6px 0;
-}
+.price{color:#d4af37;font-weight:bold;margin:6px 0}
 .wa{
-  display:block;
-  margin-top:6px;
-  padding:8px;
-  background:#25d366;
-  color:#000;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+ display:block;
+ padding:8px;
+ background:#25d366;
+ color:#000;
+ border-radius:8px;
+ text-decoration:none;
+ font-weight:bold
 }
 </style>
 </head>
@@ -69,31 +49,88 @@ header{
 
 <div class="products">
 
-<!-- ПРОДУКТИ (пример 12, ти можеш да копираш до 100) -->
-
+<!-- IPHONE -->
 <div class="card">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIyNjAiIHJ4PSIxNSIgZmlsbD0iIzIyMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5pUGhvbmUgMTc8L3RleHQ+PC9zdmc+">
-<h4>iPhone 17</h4>
-<div class="price">89.990 ден</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/IPhone_15_Pro_Max.png/512px-IPhone_15_Pro_Max.png">
+<h4>iPhone 17</h4><div class="price">89.990 ден</div>
 <a class="wa" href="https://wa.me/38970490490?text=iPhone%2017">WhatsApp</a>
 </div>
 
 <div class="card">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TYW1zdW5nPC90ZXh0Pjwvc3ZnPg==">
-<h4>Samsung S24 Ultra</h4>
-<div class="price">79.990 ден</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/IPhone_15_Pro_Max.png/512px-IPhone_15_Pro_Max.png">
+<h4>iPhone 16 Pro</h4><div class="price">79.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=iPhone%2016%20Pro">WhatsApp</a>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/IPhone_15_Pro_Max.png/512px-IPhone_15_Pro_Max.png">
+<h4>iPhone 15</h4><div class="price">69.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=iPhone%2015">WhatsApp</a>
+</div>
+
+<!-- SAMSUNG -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Samsung_Galaxy_S23.png/512px-Samsung_Galaxy_S23.png">
+<h4>Samsung S24 Ultra</h4><div class="price">84.990 ден</div>
 <a class="wa" href="https://wa.me/38970490490?text=Samsung%20S24%20Ultra">WhatsApp</a>
 </div>
 
 <div class="card">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIyNSIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjZDQxZjM3IiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5YaWFvbWk8L3RleHQ+PC9zdmc+">
-<h4>Xiaomi 14 Pro</h4>
-<div class="price">59.990 ден</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Samsung_Galaxy_S23.png/512px-Samsung_Galaxy_S23.png">
+<h4>Samsung S23</h4><div class="price">59.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Samsung%20S23">WhatsApp</a>
+</div>
+
+<!-- XIAOMI -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Xiaomi_13.jpg/512px-Xiaomi_13.jpg">
+<h4>Xiaomi 14 Pro</h4><div class="price">54.990 ден</div>
 <a class="wa" href="https://wa.me/38970490490?text=Xiaomi%2014%20Pro">WhatsApp</a>
 </div>
 
-<!-- КОПИРАЈ ГО ОВОЈ БЛОК ЗА 100 ПРОДУКТИ -->
-
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Xiaomi_13.jpg/512px-Xiaomi_13.jpg">
+<h4>Xiaomi Redmi Note 13</h4><div class="price">19.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Redmi%20Note%2013">WhatsApp</a>
 </div>
+
+<!-- HUAWEI -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Huawei_P60_Pro.jpg/512px-Huawei_P60_Pro.jpg">
+<h4>Huawei P70 Pro</h4><div class="price">64.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Huawei%20P70%20Pro">WhatsApp</a>
+</div>
+
+<!-- GOOGLE -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Google_Pixel_7.png/512px-Google_Pixel_7.png">
+<h4>Google Pixel 8</h4><div class="price">49.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Google%20Pixel%208">WhatsApp</a>
+</div>
+
+<!-- ONEPLUS -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/OnePlus_11.png/512px-OnePlus_11.png">
+<h4>OnePlus 12</h4><div class="price">58.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=OnePlus%2012">WhatsApp</a>
+</div>
+
+<!-- REALME -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Realme_GT.jpg/512px-Realme_GT.jpg">
+<h4>Realme GT 5</h4><div class="price">34.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Realme%20GT%205">WhatsApp</a>
+</div>
+
+<!-- OPPO -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Oppo_Find_X5.jpg/512px-Oppo_Find_X5.jpg">
+<h4>Oppo Find X6</h4><div class="price">44.990 ден</div>
+<a class="wa" href="https://wa.me/38970490490?text=Oppo%20Find%20X6">WhatsApp</a>
+</div>
+
+<!-- продолжи со копирање на истиот pattern до 50 -->
+</div>
+
 </body>
 </html>
