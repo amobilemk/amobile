@@ -19,63 +19,49 @@ body{
   overflow:hidden;
 }
 
-/* ========== АНИМИРАНА ПОЗАДИНА ========== */
+/* ====== АНИМИРАНА ПОЗАДИНА СО УКРСТЕНИ ЛИНИИ ====== */
 .bg{
   position:fixed;
   inset:0;
   z-index:-1;
-  background:#000;
   overflow:hidden;
 }
 
-/* ПРВ СЛОЈ */
-.bg .layer1,
-.bg .layer2{
+/* ЕДЕН СЛОЈ – УКРСТЕНИ ЛИНИИ */
+.bg::before{
+  content:"";
   position:absolute;
-  inset:-100%;
+  inset:-120%;
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(212,175,55,0.10) 0px,
-      rgba(212,175,55,0.10) 1px,
-      transparent 1px,
-      transparent 60px
-    );
-  filter: drop-shadow(0 0 10px rgba(212,175,55,0.25));
-}
-
-/* ВТОР СЛОЈ – УКРСТЕН */
-.bg .layer2{
-  background:
+      rgba(212,175,55,0.18) 0px,
+      rgba(212,175,55,0.18) 4px,
+      transparent 4px,
+      transparent 70px
+    ),
     repeating-linear-gradient(
       -45deg,
-      rgba(212,175,55,0.08) 0px,
-      rgba(212,175,55,0.08) 1px,
-      transparent 1px,
+      rgba(212,175,55,0.14) 0px,
+      rgba(212,175,55,0.14) 4px,
+      transparent 4px,
       transparent 70px
     );
-  filter: drop-shadow(0 0 14px rgba(212,175,55,0.2));
+  filter:
+    drop-shadow(0 0 18px rgba(212,175,55,.35));
+  animation: slowMove 70s linear infinite;
 }
 
-/* АНИМАЦИИ – ЈАСНО ДВИЖЕЊЕ */
-.layer1{
-  animation: move1 80s linear infinite;
-}
-.layer2{
-  animation: move2 120s linear infinite;
-}
-
-@keyframes move1{
-  from{transform:translate(0,0);}
-  to{transform:translate(400px,400px);}
+@keyframes slowMove{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(500px,300px);
+  }
 }
 
-@keyframes move2{
-  from{transform:translate(0,0);}
-  to{transform:translate(-500px,300px);}
-}
-
-/* ========== СОДРЖИНА ========== */
+/* ====== СОДРЖИНА ====== */
 .hero{
   min-height:100vh;
   display:flex;
@@ -86,18 +72,41 @@ body{
   padding:20px;
 }
 
-h1{
-  font-size:44px;
+/* GLOW PULSE LOGO */
+.logo{
+  font-size:46px;
+  font-weight:bold;
   color:#d4af37;
   letter-spacing:2px;
-  margin-bottom:12px;
-  text-shadow:0 0 18px rgba(212,175,55,.4);
+  margin-bottom:14px;
+  text-shadow:
+    0 0 10px rgba(212,175,55,.4),
+    0 0 25px rgba(212,175,55,.25);
+  animation: glowPulse 4.5s ease-in-out infinite;
 }
 
-p{
+@keyframes glowPulse{
+  0%{
+    text-shadow:
+      0 0 10px rgba(212,175,55,.3),
+      0 0 25px rgba(212,175,55,.2);
+  }
+  50%{
+    text-shadow:
+      0 0 18px rgba(212,175,55,.8),
+      0 0 45px rgba(212,175,55,.6);
+  }
+  100%{
+    text-shadow:
+      0 0 10px rgba(212,175,55,.3),
+      0 0 25px rgba(212,175,55,.2);
+  }
+}
+
+.subtitle{
   font-size:18px;
   opacity:.9;
-  margin-bottom:40px;
+  margin-bottom:42px;
 }
 
 .buttons{
@@ -115,12 +124,13 @@ p{
   font-weight:bold;
   text-decoration:none;
   border-radius:16px;
-  box-shadow:0 12px 35px rgba(212,175,55,.35);
-  transition:.25s;
+  box-shadow:0 14px 40px rgba(212,175,55,.4);
+  transition:.25s ease;
 }
 
 .btn:hover{
   transform:translateY(-4px);
+  box-shadow:0 20px 55px rgba(212,175,55,.55);
 }
 
 .phone{
@@ -130,21 +140,18 @@ p{
 
 @media(max-width:600px){
   .buttons{flex-direction:column;}
-  h1{font-size:36px;}
+  .logo{font-size:38px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg">
-  <div class="layer1"></div>
-  <div class="layer2"></div>
-</div>
+<div class="bg"></div>
 
 <div class="hero">
-  <h1>A Mobile</h1>
-  <p>Продажба • Сервис • Телефони • Аксесоари</p>
+  <div class="logo">A Mobile</div>
+  <div class="subtitle">Продажба • Сервис • Телефони • Аксесоари</div>
 
   <div class="buttons">
     <a href="phones.html" class="btn">📱 Телефони</a>
