@@ -1,165 +1,38 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Mobile</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-  background:#000;
-  color:#fff;
-  overflow:hidden;
-}
-
-/* ====== АНИМИРАНА ПОЗАДИНА СО УКРСТЕНИ ЛИНИИ ====== */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  overflow:hidden;
-}
-
-/* ЕДЕН СЛОЈ – УКРСТЕНИ ЛИНИИ */
-.bg::before{
-  content:"";
-  position:absolute;
-  inset:-120%;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(212,175,55,0.18) 0px,
-      rgba(212,175,55,0.18) 4px,
-      transparent 4px,
-      transparent 70px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(212,175,55,0.14) 0px,
-      rgba(212,175,55,0.14) 4px,
-      transparent 4px,
-      transparent 70px
-    );
-  filter:
-    drop-shadow(0 0 18px rgba(212,175,55,.35));
-  animation: slowMove 70s linear infinite;
-}
-
-@keyframes slowMove{
-  from{
-    transform:translate(0,0);
-  }
-  to{
-    transform:translate(500px,300px);
-  }
-}
-
-/* ====== СОДРЖИНА ====== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-}
-
-/* GLOW PULSE LOGO */
-.logo{
-  font-size:46px;
-  font-weight:bold;
-  color:#d4af37;
-  letter-spacing:2px;
-  margin-bottom:14px;
-  text-shadow:
-    0 0 10px rgba(212,175,55,.4),
-    0 0 25px rgba(212,175,55,.25);
-  animation: glowPulse 4.5s ease-in-out infinite;
-}
-
-@keyframes glowPulse{
-  0%{
-    text-shadow:
-      0 0 10px rgba(212,175,55,.3),
-      0 0 25px rgba(212,175,55,.2);
-  }
-  50%{
-    text-shadow:
-      0 0 18px rgba(212,175,55,.8),
-      0 0 45px rgba(212,175,55,.6);
-  }
-  100%{
-    text-shadow:
-      0 0 10px rgba(212,175,55,.3),
-      0 0 25px rgba(212,175,55,.2);
-  }
-}
-
-.subtitle{
-  font-size:18px;
-  opacity:.9;
-  margin-bottom:42px;
-}
-
-.buttons{
-  display:flex;
-  gap:22px;
-  width:100%;
-  max-width:420px;
-}
-
-.btn{
-  flex:1;
-  padding:18px;
-  background:linear-gradient(135deg,#d4af37,#b8962e);
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:16px;
-  box-shadow:0 14px 40px rgba(212,175,55,.4);
-  transition:.25s ease;
-}
-
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 55px rgba(212,175,55,.55);
-}
-
-.phone{
-  margin-top:28px;
-  opacity:.85;
-}
-
-@media(max-width:600px){
-  .buttons{flex-direction:column;}
-  .logo{font-size:38px;}
-}
-</style>
 </head>
 
-<body>
+<body style="margin:0;background:#000;color:#fff;font-family:Arial;text-align:center">
 
-<div class="bg"></div>
+<h1 style="color:#d4af37;padding:30px 10px">
+A Mobile
+</h1>
 
-<div class="hero">
-  <div class="logo">A Mobile</div>
-  <div class="subtitle">Продажба • Сервис • Телефони • Аксесоари</div>
+<p style="opacity:.8">Телефони • Аксесоари • Сервис</p>
 
-  <div class="buttons">
-    <a href="phones.html" class="btn">📱 Телефони</a>
-    <a href="accessories.html" class="btn">🎧 Аксесоари</a>
-  </div>
+<div style="margin:40px 0">
+  <a href="phones.html"
+     style="display:block;margin:15px auto;width:200px;padding:15px;
+     background:#d4af37;color:#000;text-decoration:none;
+     border-radius:12px;font-weight:bold">
+     📱 Телефони
+  </a>
 
-  <div class="phone">📞 070 490 490</div>
+  <a href="accessories.html"
+     style="display:block;margin:15px auto;width:200px;padding:15px;
+     background:#25d366;color:#000;text-decoration:none;
+     border-radius:12px;font-weight:bold">
+     🎧 Аксесоари
+  </a>
 </div>
+
+<p style="margin-top:50px;font-size:14px;opacity:.6">
+📞 070 490 490
+</p>
 
 </body>
 </html>
