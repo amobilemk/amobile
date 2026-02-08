@@ -6,122 +6,164 @@
 <title>A Mobile</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#f5f6fa;color:#222}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+  background:linear-gradient(135deg,#ff004c,#ff9a00,#7f00ff);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  color:#111;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
 /* HEADER */
 header{
-  background:#000;
-  color:#fff;
-  padding:15px 30px;
+  padding:20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 .logo{
-  font-size:28px;
+  font-size:34px;
   font-weight:900;
-  color:#e60000;
+  color:#ff0000;
+  text-shadow:0 0 15px rgba(255,0,0,.8);
+  animation:pulse 2s infinite;
 }
-nav a{
-  color:#fff;
-  margin-right:20px;
-  text-decoration:none;
-  font-weight:600;
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 .lang button{
-  margin-left:6px;
-  padding:6px 10px;
   border:none;
+  background:#fff;
+  padding:8px 12px;
+  border-radius:20px;
+  margin-left:6px;
   cursor:pointer;
   font-weight:bold;
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(to right,#000,#b00000);
-  color:#fff;
-  padding:70px 20px;
   text-align:center;
+  padding:70px 20px;
+  color:#fff;
 }
-.hero h1{font-size:40px;margin-bottom:10px}
-.hero p{font-size:18px}
+.hero h1{
+  font-size:44px;
+  margin-bottom:15px;
+}
+.hero p{
+  font-size:20px;
+  opacity:.95;
+}
+
+/* BIG BUTTONS */
+.main-buttons{
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  margin:50px 20px;
+  flex-wrap:wrap;
+}
+.big-btn{
+  width:260px;
+  height:160px;
+  border-radius:30px;
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:.4s;
+}
+.big-btn:hover{
+  transform:translateY(-10px) scale(1.05);
+}
+.big-btn span{
+  font-size:60px;
+}
+.big-btn h3{
+  margin-top:10px;
+  font-size:24px;
+  color:#fff;
+}
 
 /* SECTIONS */
 .section{
-  padding:60px 40px;
+  padding:70px 20px;
+  background:#fff;
+  border-radius:50px 50px 0 0;
+  margin-top:40px;
 }
 .section h2{
   text-align:center;
+  font-size:36px;
   margin-bottom:40px;
-  font-size:32px;
 }
 
 /* PRODUCTS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:25px;
 }
 .card{
-  background:#fff;
-  border-radius:10px;
-  padding:20px;
+  background:linear-gradient(135deg,#f9f9f9,#ececec);
+  border-radius:25px;
+  padding:25px;
   text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,.1);
+  box-shadow:0 15px 30px rgba(0,0,0,.15);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
 }
 .fake-img{
   width:100%;
-  height:140px;
-  background:linear-gradient(135deg,#ddd,#bbb);
-  border-radius:8px;
+  height:120px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ff0080,#7928ca,#00f2ff);
   margin-bottom:15px;
+  animation:shine 3s linear infinite;
 }
-.price{
-  color:#c00;
-  font-weight:bold;
-  margin:10px 0;
+@keyframes shine{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(360deg)}
 }
-.card a{
-  display:inline-block;
-  margin-top:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
+.card h4{margin-bottom:8px}
+.price{color:#ff0000;font-weight:bold}
 
-/* CONTACT FLOAT */
-.contact-fixed{
+/* WHATSAPP */
+.whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:9999;
-}
-.contact-fixed a{
+  background:#25d366;
   color:#fff;
-  padding:14px 18px;
-  border-radius:30px;
-  font-weight:bold;
+  padding:18px 22px;
+  border-radius:50px;
   text-decoration:none;
-  box-shadow:0 6px 20px rgba(0,0,0,.3);
+  font-weight:bold;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  animation:float 3s ease-in-out infinite;
 }
-.wh{background:#25D366}
-.vb{background:#7360F2}
-
-/* FOOTER */
-footer{
-  background:#000;
-  color:#fff;
-  text-align:center;
-  padding:20px;
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
 }
 
 /* MOBILE */
 @media(max-width:600px){
-  nav{display:none}
-  .hero h1{font-size:30px}
+  .hero h1{font-size:32px}
+  .big-btn{width:100%}
 }
 </style>
 </head>
@@ -130,11 +172,6 @@ footer{
 
 <header>
   <div class="logo">A Mobile</div>
-  <nav>
-    <a href="#phones" data-t="phones"></a>
-    <a href="#accessories" data-t="accessories"></a>
-    <a href="#electronics" data-t="electronics"></a>
-  </nav>
   <div class="lang">
     <button onclick="setLang('mk')">MK</button>
     <button onclick="setLang('al')">AL</button>
@@ -146,63 +183,65 @@ footer{
 <section class="hero">
   <h1 data-t="title"></h1>
   <p data-t="subtitle"></p>
-  <h2>📞 070 490 490</h2>
 </section>
 
-<!-- PHONES -->
-<section id="phones" class="section">
-<h2 data-t="phones"></h2>
-<div class="products" id="phonesList"></div>
-</section>
-
-<!-- ACCESSORIES -->
-<section id="accessories" class="section">
-<h2 data-t="accessories"></h2>
-<div class="products" id="accList"></div>
-</section>
-
-<!-- ELECTRONICS -->
-<section id="electronics" class="section">
-<h2 data-t="electronics"></h2>
-<div class="products" id="elecList"></div>
-</section>
-
-<footer>
-© A Mobile – Mobile Store & Services
-</footer>
-
-<!-- WHATSAPP + VIBER -->
-<div class="contact-fixed">
-  <a class="wh" href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a>
-  <a class="vb" href="viber://chat?number=38970490490">📞 Viber</a>
+<div class="main-buttons">
+  <div class="big-btn" onclick="scrollToSec('phones')">
+    <span>📱</span><h3 data-t="phones"></h3>
+  </div>
+  <div class="big-btn" onclick="scrollToSec('accessories')">
+    <span>🎧</span><h3 data-t="accessories"></h3>
+  </div>
+  <div class="big-btn" onclick="scrollToSec('electronics')">
+    <span>⚡</span><h3 data-t="electronics"></h3>
+  </div>
 </div>
 
+<div id="phones" class="section">
+<h2 data-t="phones"></h2>
+<div class="products" id="phonesList"></div>
+</div>
+
+<div id="accessories" class="section">
+<h2 data-t="accessories"></h2>
+<div class="products" id="accList"></div>
+</div>
+
+<div id="electronics" class="section">
+<h2 data-t="electronics"></h2>
+<div class="products" id="elecList"></div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/38970490490" target="_blank">
+💬 WhatsApp
+</a>
+
 <script>
-const t={
+const text={
  mk:{
   title:"Mobile Store & Services",
-  subtitle:"Продажба • Сервис • Аксесоари • Откуп",
+  subtitle:"Најбрзо • Ефикасно • Квалитетно",
   phones:"Телефони",
   accessories:"Аксесоари",
   electronics:"Електроника"
  },
  al:{
   title:"Mobile Store & Services",
-  subtitle:"Shitje • Servis • Aksesore • Blerje",
+  subtitle:"Shpejt • Saktë • Cilësi",
   phones:"Telefona",
   accessories:"Aksesore",
   electronics:"Elektronikë"
  },
  en:{
   title:"Mobile Store & Services",
-  subtitle:"Sales • Service • Accessories • Buyback",
+  subtitle:"Fast • Smart • Quality",
   phones:"Phones",
   accessories:"Accessories",
   electronics:"Electronics"
  },
  tr:{
   title:"Mobil Mağaza & Servis",
-  subtitle:"Satış • Servis • Aksesuar • Alım",
+  subtitle:"Hızlı • Akıllı • Kaliteli",
   phones:"Telefonlar",
   accessories:"Aksesuarlar",
   electronics:"Elektronik"
@@ -211,28 +250,29 @@ const t={
 
 function setLang(l){
  document.querySelectorAll("[data-t]").forEach(e=>{
-  e.innerText=t[l][e.dataset.t];
+  e.innerText=text[l][e.dataset.t];
  });
- localStorage.setItem("lang",l);
 }
-setLang(localStorage.getItem("lang")||"mk");
+setLang("mk");
 
-function fill(id,name){
+function fill(id,prefix,count){
  let el=document.getElementById(id);
- for(let i=1;i<=12;i++){
+ for(let i=1;i<=count;i++){
   el.innerHTML+=`
-  <div class="card">
+   <div class="card">
     <div class="fake-img"></div>
-    <h4>${name} ${i}</h4>
-    <div class="price">${(i*1000)+999} ден</div>
-    <a href="https://wa.me/38970490490" target="_blank">💬 WhatsApp</a><br>
-    <a href="viber://chat?number=38970490490">📞 Viber</a>
-  </div>`;
+    <h4>${prefix} ${i}</h4>
+    <div class="price">${(100+i)*10} ден</div>
+   </div>`;
  }
 }
-fill("phonesList","Phone");
-fill("accList","Accessory");
-fill("elecList","Electronic");
+fill("phonesList","Model",50);
+fill("accList","Accessory",50);
+fill("elecList","Gadget",50);
+
+function scrollToSec(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
