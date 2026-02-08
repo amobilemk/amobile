@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аксесоари – A Mobile</title>
+<title>A Mobile – Accessories</title>
 
 <style>
 body{
@@ -12,13 +12,29 @@ body{
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
 }
+
+/* HEADER */
 header{
-  padding:20px;
-  text-align:center;
-  font-size:30px;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:28px;
   font-weight:900;
   color:#d60000;
 }
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -32,6 +48,8 @@ header{
   text-align:center;
   box-shadow:0 12px 40px rgba(0,0,0,.6);
 }
+
+/* VISUAL BASE */
 .visual{
   height:170px;
   border-radius:14px;
@@ -41,7 +59,7 @@ header{
   font-size:78px;
 }
 
-/* VISUAL TYPES */
+/* ACCESSORY TYPES */
 .charger{background:linear-gradient(135deg,#ffb300,#ff6f00)}
 .power{background:linear-gradient(135deg,#00c853,#1de9b6)}
 .audio{background:linear-gradient(135deg,#651fff,#d500f9)}
@@ -72,8 +90,8 @@ header{
 }
 .back{
   display:block;
-  margin:20px;
   text-align:center;
+  margin:20px;
   color:#aaa;
   text-decoration:none;
 }
@@ -82,59 +100,89 @@ header{
 
 <body>
 
-<header>Аксесоари</header>
+<header>
+  <div class="logo">A Mobile</div>
+  <div class="lang">
+    <button onclick="setLang('mk')">MK</button>
+    <button onclick="setLang('al')">AL</button>
+    <button onclick="setLang('tr')">TR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
 
 <div class="grid" id="acc"></div>
 
-<a class="back" href="index.html">← Назад</a>
+<a class="back" href="index.html" data-lang="back"></a>
 
 <script>
-const accessories = [
- {name:"Fast Charger 25W USB-C", type:"charger", icon:"🔌"},
- {name:"Fast Charger 45W USB-C", type:"charger", icon:"⚡"},
- {name:"Wireless Charger Pad", type:"charger", icon:"📡"},
+/* LANG TEXTS */
+const t={
+ mk:{back:"← Назад"},
+ al:{back:"← Kthehu"},
+ tr:{back:"← Geri"},
+ en:{back:"← Back"}
+};
 
- {name:"Power Bank 10.000mAh", type:"power", icon:"🔋"},
- {name:"Power Bank 20.000mAh", type:"power", icon:"🔋"},
+/* ACCESSORY DATA */
+const accessories=[
+ {mk:"Брз полнач 25W USB-C", al:"Karikues i shpejtë 25W", tr:"Hızlı Şarj 25W", en:"Fast Charger 25W",
+  type:"charger", icon:"🔌", price:1290},
 
- {name:"Wireless Earbuds Pro", type:"audio", icon:"🎧"},
- {name:"Bluetooth Headphones", type:"audio", icon:"🎶"},
- {name:"Bluetooth Speaker", type:"audio", icon:"🔊"},
+ {mk:"Безжичен полнач", al:"Karikues Wireless", tr:"Kablosuz Şarj", en:"Wireless Charger",
+  type:"charger", icon:"📡", price:1990},
 
- {name:"iPhone Silicone Case", type:"case", icon:"📱"},
- {name:"Samsung Clear Case", type:"case", icon:"📱"},
- {name:"Tempered Glass 9H", type:"case", icon:"🛡️"},
+ {mk:"Power Bank 10.000mAh", al:"Power Bank 10.000mAh", tr:"Powerbank 10.000mAh", en:"Power Bank 10.000mAh",
+  type:"power", icon:"🔋", price:1690},
 
- {name:"Car Phone Holder", type:"car", icon:"🚗"},
- {name:"Car Charger Dual USB", type:"car", icon:"🚘"},
+ {mk:"Безжични слушалки", al:"Kufje Wireless", tr:"Kablosuz Kulaklık", en:"Wireless Earbuds",
+  type:"audio", icon:"🎧", price:2490},
 
- {name:"Smart Watch Series", type:"watch", icon:"⌚"},
- {name:"Fitness Band", type:"watch", icon:"⌚"},
+ {mk:"Bluetooth звучник", al:"Altavoz Bluetooth", tr:"Bluetooth Hoparlör", en:"Bluetooth Speaker",
+  type:"audio", icon:"🔊", price:2990},
 
- {name:"Tripod Stand", type:"photo", icon:"📸"},
- {name:"Selfie Stick Bluetooth", type:"photo", icon:"🤳"},
+ {mk:"Силиконска маска", al:"Maskë Silikoni", tr:"Silikon Kılıf", en:"Silicone Case",
+  type:"case", icon:"📱", price:590},
 
- {name:"USB-C to HDMI Adapter", type:"other", icon:"🔄"},
- {name:"SIM Card Adapter", type:"other", icon:"💳"}
+ {mk:"Заштитно стакло 9H", al:"Xham mbrojtës 9H", tr:"Cam Ekran Koruyucu", en:"Tempered Glass 9H",
+  type:"case", icon:"🛡️", price:390},
+
+ {mk:"Држач за автомобил", al:"Mbajtës për makinë", tr:"Araç Telefon Tutucu", en:"Car Phone Holder",
+  type:"car", icon:"🚗", price:890},
+
+ {mk:"Паметен часовник", al:"Smart Watch", tr:"Akıllı Saat", en:"Smart Watch",
+  type:"watch", icon:"⌚", price:3490},
+
+ {mk:"Tripod + Selfie Stick", al:"Tripod + Selfie Stick", tr:"Tripod + Selfie Çubuğu", en:"Tripod + Selfie Stick",
+  type:"photo", icon:"📸", price:1590}
 ];
 
-let html="";
-let price=390;
+let currentLang=localStorage.getItem("lang")||"mk";
 
-accessories.forEach(a=>{
- html+=`
- <div class="card">
-   <div class="visual ${a.type}">${a.icon}</div>
-   <div class="name">${a.name}</div>
-   <div class="price">${price.toLocaleString()} ден</div>
-   <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(a.name)}" target="_blank">
-     WhatsApp
-   </a>
- </div>`;
- price+=120;
-});
+function render(){
+ let html="";
+ accessories.forEach(a=>{
+  html+=`
+  <div class="card">
+    <div class="visual ${a.type}">${a.icon}</div>
+    <div class="name">${a[currentLang]}</div>
+    <div class="price">${a.price.toLocaleString()} ден</div>
+    <a class="wa" href="https://wa.me/38970490490?text=${encodeURIComponent(a[currentLang])}" target="_blank">
+      WhatsApp
+    </a>
+  </div>`;
+ });
+ document.getElementById("acc").innerHTML=html;
+}
 
-document.getElementById("acc").innerHTML=html;
+function setLang(l){
+ currentLang=l;
+ localStorage.setItem("lang",l);
+ document.querySelector("[data-lang]").innerText=t[l].back;
+ render();
+}
+
+render();
+setLang(currentLang);
 </script>
 
 </body>
