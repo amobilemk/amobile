@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronics – A Mobile</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0b0b0f;
+  color:#fff;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+.logo{font-size:26px;font-weight:900;color:#d60000}
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+}
+
+.grid{
+  padding:30px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:18px;
+}
+.card{
+  background:linear-gradient(135deg,#14141a,#1f1f28);
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+.icon{
+  width:70px;
+  height:70px;
+  margin:0 auto 10px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+.price{color:#00c6ff;font-weight:900}
+
+.back{
+  display:block;
+  margin:30px auto;
+  max-width:200px;
+  padding:12px;
+  text-align:center;
+  background:#15151b;
+  border-radius:14px;
+  color:#fff;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">A Mobile</div>
+  <div class="lang">
+    <button onclick="setLang('mk')">MK</button>
+    <button onclick="setLang('al')">AL</button>
+    <button onclick="setLang('tr')">TR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<div class="grid">
+  <div class="card"><div class="icon">🛴</div><div data-lang="p1"></div><div class="price">699€</div></div>
+  <div class="card"><div class="icon">🛴</div><div data-lang="p2"></div><div class="price">899€</div></div>
+  <div class="card"><div class="icon">🔊</div><div data-lang="p3"></div><div class="price">149€</div></div>
+  <div class="card"><div class="icon">🎶</div><div data-lang="p4"></div><div class="price">249€</div></div>
+  <div class="card"><div class="icon">🎧</div><div data-lang="p5"></div><div class="price">89€</div></div>
+  <div class="card"><div class="icon">⌚</div><div data-lang="p6"></div><div class="price">199€</div></div>
+  <div class="card"><div class="icon">📷</div><div data-lang="p7"></div><div class="price">179€</div></div>
+  <div class="card"><div class="icon">🎮</div><div data-lang="p8"></div><div class="price">59€</div></div>
+  <div class="card"><div class="icon">🏠</div><div data-lang="p9"></div><div class="price">99€</div></div>
+  <div class="card"><div class="icon">🚗</div><div data-lang="p10"></div><div class="price">79€</div></div>
+</div>
+
+<a href="index.html" class="back">⬅ Назад</a>
+
+<script>
+const t={
+ mk:{
+  p1:"Електричен тротинет Urban",
+  p2:"Електричен тротинет Pro",
+  p3:"Bluetooth звучник",
+  p4:"Party звучник",
+  p5:"Безжични слушалки",
+  p6:"Smart Watch",
+  p7:"Wi-Fi камера",
+  p8:"Gaming контролер",
+  p9:"Smart Home уред",
+  p10:"Авто електроника"
+ },
+ al:{
+  p1:"Skuter elektrik Urban",
+  p2:"Skuter elektrik Pro",
+  p3:"Altavoz Bluetooth",
+  p4:"Altavoz Party",
+  p5:"Kufje wireless",
+  p6:"Orë Smart",
+  p7:"Kamerë Wi-Fi",
+  p8:"Kontroller gaming",
+  p9:"Pajisje Smart Home",
+  p10:"Elektronikë auto"
+ },
+ tr:{
+  p1:"Elektrikli scooter Urban",
+  p2:"Elektrikli scooter Pro",
+  p3:"Bluetooth hoparlör",
+  p4:"Parti hoparlörü",
+  p5:"Kablosuz kulaklık",
+  p6:"Akıllı saat",
+  p7:"Wi-Fi kamera",
+  p8:"Oyun kontrolcüsü",
+  p9:"Akıllı ev cihazı",
+  p10:"Araç elektroniği"
+ },
+ en:{
+  p1:"Electric scooter Urban",
+  p2:"Electric scooter Pro",
+  p3:"Bluetooth speaker",
+  p4:"Party speaker",
+  p5:"Wireless headphones",
+  p6:"Smart Watch",
+  p7:"Wi-Fi camera",
+  p8:"Gaming controller",
+  p9:"Smart Home device",
+  p10:"Car electronics"
+ }
+};
+function setLang(l){
+ localStorage.setItem("lang",l);
+ document.querySelectorAll("[data-lang]").forEach(e=>{
+  e.innerText=t[l][e.dataset.lang];
+ });
+}
+setLang(localStorage.getItem("lang")||"mk");
+</script>
+
+</body>
+</html>
