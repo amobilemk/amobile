@@ -1,38 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="mk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Mobile</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* CANDY BACKGROUND */
+.candy-bg{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(120deg,#ff4ecd,#ffb347,#7efff5,#9b5cff,#ff4ecd);
+  background-size:400% 400%;
+  animation:candyMove 18s ease infinite;
+  z-index:-2;
+}
+@keyframes candyMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* FLOATING SHAPES */
+.shape{
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:30%;
+  opacity:.25;
+  animation:float 20s linear infinite;
+}
+.shape:nth-child(1){background:#ff4ecd;top:10%;left:5%}
+.shape:nth-child(2){background:#7efff5;top:70%;left:10%;animation-duration:25s}
+.shape:nth-child(3){background:#ffb347;top:20%;right:10%;animation-duration:30s}
+.shape:nth-child(4){background:#9b5cff;bottom:10%;right:5%;animation-duration:22s}
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-60px) rotate(180deg)}
+  100%{transform:translateY(0) rotate(360deg)}
+}
+
+/* CONTENT */
+.wrapper{
+  padding:40px 20px;
+  text-align:center;
+}
+.logo{
+  font-size:48px;
+  font-weight:bold;
+  letter-spacing:2px;
+  animation:glow 3s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{text-shadow:0 0 10px #fff}
+  50%{text-shadow:0 0 25px #fff,0 0 40px #ff4ecd}
+}
+.subtitle{
+  margin-top:10px;
+  opacity:.9;
+}
+
+.buttons{
+  margin:50px auto;
+  max-width:300px;
+}
+.btn{
+  display:block;
+  margin:15px 0;
+  padding:16px;
+  border-radius:20px;
+  font-size:18px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  transition:.3s;
+}
+.btn:hover{
+  transform:scale(1.05);
+}
+
+.footer{
+  margin-top:60px;
+  opacity:.8;
+  font-size:14px;
+}
+</style>
 </head>
 
-<body style="margin:0;background:#000;color:#fff;font-family:Arial;text-align:center">
+<body>
 
-<h1 style="color:#d4af37;padding:30px 10px">
-A Mobile
-</h1>
+<div class="candy-bg"></div>
 
-<p style="opacity:.8">Телефони • Аксесоари • Сервис</p>
+<div class="shape"></div>
+<div class="shape"></div>
+<div class="shape"></div>
+<div class="shape"></div>
 
-<div style="margin:40px 0">
-  <a href="phones.html"
-     style="display:block;margin:15px auto;width:200px;padding:15px;
-     background:#d4af37;color:#000;text-decoration:none;
-     border-radius:12px;font-weight:bold">
-     📱 Телефони
-  </a>
+<div class="wrapper">
+  <div class="logo">A Mobile</div>
+  <div class="subtitle">
+    Телефони • Аксесоари • Сервис
+  </div>
 
-  <a href="accessories.html"
-     style="display:block;margin:15px auto;width:200px;padding:15px;
-     background:#25d366;color:#000;text-decoration:none;
-     border-radius:12px;font-weight:bold">
-     🎧 Аксесоари
-  </a>
+  <div class="buttons">
+    <a class="btn" href="phones.html">📱 Телефони</a>
+    <a class="btn" href="accessories.html">🎧 Аксесоари</a>
+  </div>
+
+  <div class="footer">
+    📞 070 490 490<br>
+    WhatsApp • Viber • Call
+  </div>
 </div>
-
-<p style="margin-top:50px;font-size:14px;opacity:.6">
-📞 070 490 490
-</p>
 
 </body>
 </html>
