@@ -30,6 +30,7 @@ header{
   border-radius:18px;
   padding:14px;
   text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.6);
 }
 .visual{
   height:170px;
@@ -40,8 +41,16 @@ header{
   justify-content:center;
   font-size:80px;
 }
-.name{margin-top:10px;font-weight:800}
-.price{color:#ff4d4d;font-weight:900;margin:6px 0}
+.name{
+  margin-top:10px;
+  font-weight:800;
+  font-size:14px;
+}
+.price{
+  color:#ff4d4d;
+  font-weight:900;
+  margin:6px 0;
+}
 .wa{
   display:block;
   padding:10px;
@@ -70,29 +79,72 @@ header{
 <a class="back" href="index.html">← Назад</a>
 
 <script>
-const accTypes=[
- "Слушалки","Полнач","USB Кабел","Power Bank","Bluetooth Звучник",
- "Маска","Заштитно Стакло","Car Charger","Wireless Charger",
- "Smart Watch","Earbuds","Tripod","Selfie Stick","Holder","Adapter"
+const accessories = [
+
+ // Chargers & cables
+ "Fast Charger 20W USB-C",
+ "Fast Charger 25W USB-C",
+ "Fast Charger 45W USB-C",
+ "Wireless Charger Pad",
+ "Car Charger Dual USB",
+ "USB-C Cable 1m",
+ "USB-C Cable 2m",
+ "Lightning Cable",
+ "Micro-USB Cable",
+
+ // Audio
+ "Wireless Earbuds Pro",
+ "Bluetooth Headphones",
+ "Gaming Headset",
+ "Bluetooth Speaker Mini",
+ "Bluetooth Speaker Bass",
+
+ // Protection
+ "iPhone Silicone Case",
+ "Samsung Silicone Case",
+ "Clear TPU Case",
+ "Rugged Shockproof Case",
+ "Tempered Glass 9H",
+ "Privacy Glass",
+ "Camera Lens Protector",
+
+ // Power & holders
+ "Power Bank 10.000mAh",
+ "Power Bank 20.000mAh",
+ "MagSafe Power Bank",
+ "Car Phone Holder",
+ "Desk Phone Stand",
+ "Bike Phone Holder",
+
+ // Smart & extras
+ "Smart Watch Series",
+ "Fitness Band",
+ "Selfie Stick Bluetooth",
+ "Tripod Stand",
+ "Phone Cleaning Kit",
+ "SIM Card Adapter",
+ "OTG USB Adapter",
+ "USB-C to HDMI Adapter",
+ "Stylus Pen",
+ "Phone Cooling Fan"
 ];
 
 let html="";
 let price=390;
 
-for(let a=0;a<accTypes.length;a++){
- for(let i=1;i<=15;i++){
-  html+=`
-  <div class="card">
-    <div class="visual">🎧</div>
-    <div class="name">${accTypes[a]} ${i}</div>
-    <div class="price">${price.toLocaleString()} ден</div>
-    <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${accTypes[a]}%20${i}" target="_blank">
-      WhatsApp
-    </a>
-  </div>`;
-  price+=35;
- }
-}
+accessories.forEach(a=>{
+ html+=`
+ <div class="card">
+   <div class="visual">🎧</div>
+   <div class="name">${a}</div>
+   <div class="price">${price.toLocaleString()} ден</div>
+   <a class="wa" href="https://wa.me/38970490490?text=Интерес%20за%20${encodeURIComponent(a)}" target="_blank">
+     WhatsApp
+   </a>
+ </div>`;
+ price+=120;
+});
+
 document.getElementById("acc").innerHTML=html;
 </script>
 
