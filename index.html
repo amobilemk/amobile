@@ -14,49 +14,68 @@
 }
 
 body{
-  overflow:hidden;
-  color:#fff;
   background:#000;
+  color:#fff;
+  overflow:hidden;
 }
 
-/* ===== ПРЕМИУМ АНИМИРАНА ПОЗАДИНА ===== */
+/* ========== АНИМИРАНА ПОЗАДИНА ========== */
 .bg{
   position:fixed;
   inset:0;
-  z-index:-2;
+  z-index:-1;
   background:#000;
   overflow:hidden;
 }
 
-.bg::before,
-.bg::after{
-  content:"";
+/* ПРВ СЛОЈ */
+.bg .layer1,
+.bg .layer2{
   position:absolute;
-  inset:-60%;
+  inset:-100%;
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(212,175,55,0.12) 0px,
-      rgba(212,175,55,0.12) 1px,
+      rgba(212,175,55,0.10) 0px,
+      rgba(212,175,55,0.10) 1px,
       transparent 1px,
-      transparent 55px
+      transparent 60px
     );
-  filter: drop-shadow(0 0 12px rgba(212,175,55,0.25));
-  animation: drift 60s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(212,175,55,0.25));
 }
 
-.bg::after{
-  transform:rotate(-45deg);
-  opacity:0.7;
-  animation-duration:90s;
+/* ВТОР СЛОЈ – УКРСТЕН */
+.bg .layer2{
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(212,175,55,0.08) 0px,
+      rgba(212,175,55,0.08) 1px,
+      transparent 1px,
+      transparent 70px
+    );
+  filter: drop-shadow(0 0 14px rgba(212,175,55,0.2));
 }
 
-@keyframes drift{
+/* АНИМАЦИИ – ЈАСНО ДВИЖЕЊЕ */
+.layer1{
+  animation: move1 80s linear infinite;
+}
+.layer2{
+  animation: move2 120s linear infinite;
+}
+
+@keyframes move1{
   from{transform:translate(0,0);}
-  to{transform:translate(300px,300px);}
+  to{transform:translate(400px,400px);}
 }
 
-/* ===== СОДРЖИНА ===== */
+@keyframes move2{
+  from{transform:translate(0,0);}
+  to{transform:translate(-500px,300px);}
+}
+
+/* ========== СОДРЖИНА ========== */
 .hero{
   min-height:100vh;
   display:flex;
@@ -72,7 +91,7 @@ h1{
   color:#d4af37;
   letter-spacing:2px;
   margin-bottom:12px;
-  text-shadow:0 0 15px rgba(212,175,55,.35);
+  text-shadow:0 0 18px rgba(212,175,55,.4);
 }
 
 p{
@@ -88,27 +107,25 @@ p{
   max-width:420px;
 }
 
-.main-btn{
+.btn{
   flex:1;
   padding:18px;
   background:linear-gradient(135deg,#d4af37,#b8962e);
   color:#000;
-  text-decoration:none;
   font-weight:bold;
+  text-decoration:none;
   border-radius:16px;
-  box-shadow:0 10px 30px rgba(212,175,55,.35);
-  transition:all .25s ease;
+  box-shadow:0 12px 35px rgba(212,175,55,.35);
+  transition:.25s;
 }
 
-.main-btn:hover{
+.btn:hover{
   transform:translateY(-4px);
-  box-shadow:0 20px 45px rgba(212,175,55,.5);
 }
 
 .phone{
   margin-top:28px;
-  font-size:18px;
-  opacity:.9;
+  opacity:.85;
 }
 
 @media(max-width:600px){
@@ -120,15 +137,18 @@ p{
 
 <body>
 
-<div class="bg"></div>
+<div class="bg">
+  <div class="layer1"></div>
+  <div class="layer2"></div>
+</div>
 
 <div class="hero">
   <h1>A Mobile</h1>
   <p>Продажба • Сервис • Телефони • Аксесоари</p>
 
   <div class="buttons">
-    <a href="phones.html" class="main-btn">📱 Телефони</a>
-    <a href="accessories.html" class="main-btn">🎧 Аксесоари</a>
+    <a href="phones.html" class="btn">📱 Телефони</a>
+    <a href="accessories.html" class="btn">🎧 Аксесоари</a>
   </div>
 
   <div class="phone">📞 070 490 490</div>
